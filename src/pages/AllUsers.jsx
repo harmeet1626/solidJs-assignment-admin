@@ -30,7 +30,7 @@ export default function allUsers() {
       </div>
       <table class="table">
         <thead>
-          <tr style="#f00;">
+          <tr style="color:#ff8100;">
             <th>Id</th>
             <th>Age</th>
             <th>Gender</th>
@@ -45,7 +45,7 @@ export default function allUsers() {
         <tbody>
           <For each={users()?.users}>
             {(user, i) => (
-              <tr onClick={()=>moveToDetails(user.id)} style="color: blue; cursor: pointer;">
+              <tr onClick={()=>moveToDetails(user.id)} style="color: #4761FF;; cursor: pointer;">
                 <td >{user.id}</td>
                 <td>{user.age}</td>
                 <td>{user.gender}</td>
