@@ -1,17 +1,43 @@
 import { mapArray, createResource, createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
+import toast from "solid-toast";
 export default function allUsers() {
   const navigate = useNavigate()
   const [searchInput, setsearchInput] = createSignal("");
+  const [limit, setlimit] = createSignal(13);
+  const [skip, setskip] = createSignal(0);
+  const fetchUser = async (search) => {
+    if (searchInput()) {
+      return await (
+        await fetch(`https://dummyjson.com/users/search?q=${search}`)
 
-  const fetchUser = async (search) =>
-    await (
-      await fetch(`https://dummyjson.com/users/search?q=${search}`)
-    ).json();
-  const [users] = createResource(searchInput, fetchUser);
-  function moveToDetails(id){
-    console.log("test",id)
+      ).json();
+    }
+    else {
+      return await (
+        await fetch(`https://dummyjson.com/users?limit=${limit()}&skip=${skip()}`)
+      ).json();
+    }
+  }
+  const [users, { refetch }] = createResource(searchInput, fetchUser);
+  function moveToDetails(id) {
     navigate(`/userDetails/${id}`)
+  }
+  function next() {
+    if (skip() > 80) {
+      toast.error("No more records");
+    } else {
+      setskip(skip() + 13);
+      refetch();
+    }
+  }
+  function previous() {
+    if (skip() < 13) {
+      toast.error("No more records");
+    } else {
+      setskip(skip() - 13);
+      refetch();
+    }
   }
 
   return (
@@ -45,7 +71,7 @@ export default function allUsers() {
         <tbody>
           <For each={users()?.users}>
             {(user, i) => (
-              <tr onClick={()=>moveToDetails(user.id)} style="color: #4761FF;; cursor: pointer;">
+              <tr onClick={() => moveToDetails(user.id)} style="color: #4761FF;; cursor: pointer;">
                 <td >{user.id}</td>
                 <td>{user.age}</td>
                 <td>{user.gender}</td>
@@ -60,6 +86,18 @@ export default function allUsers() {
           </For>
         </tbody>
       </table>
+      <ul class="pagination" >
+        <li class="page-item">
+          <a style="cursor:pointer" class="page-link" onClick={() => previous()}>
+            Previous
+          </a>
+        </li>
+        <li class="page-item">
+          <a style="cursor:pointer" class="page-link" onClick={() => next()}>
+            Next
+          </a>
+        </li>
+      </ul>
     </>
   );
 }
