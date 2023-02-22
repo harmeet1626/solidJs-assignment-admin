@@ -4,6 +4,7 @@ import { isLogin } from "../pages/login";
 import Home from "../pages/Home";
 import Allusers from "../pages/AllUsers";
 import addUser from '../pages/addUser'
+import userDetails from '../pages/userDetails'
 
 const routes = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const routes = () => {
         <Route path="/" component={requireAuth(Home)} />
         <Route path="/Allusers" component={requireAuth(Allusers)} />
         <Route path="/addUser" component={requireAuth(addUser)} />
+        <Route path="/userDetails/:id" component={requireAuth(userDetails)} />
       </Routes>
     </>
   );

@@ -39,8 +39,8 @@ export default function navbar() {
         class="container-fluid bg-white sticky-top"
         style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
       >
-        <div class="container">
-          <nav class="navbar navbar-expand-lg bg-white navbar-light p-lg-0">
+        <div class="container" >
+          <nav class="navbar navbar-expand-lg bg-white navbar-light p-lg-0" style="height: 34px;">
             <a href="index.html" class="navbar-brand d-lg-none">
               <h1 class="fw-bold m-0">GrowMark</h1>
             </a>
@@ -54,7 +54,7 @@ export default function navbar() {
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <div class="navbar-nav">
-                <A href="/" class="nav-item nav-link active">
+                <A href="/" class="nav-item nav-link">
                   Home
                 </A>
                 <A href="/Allusers" class="nav-item nav-link">

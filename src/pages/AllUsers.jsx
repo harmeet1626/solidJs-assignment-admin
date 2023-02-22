@@ -1,5 +1,7 @@
 import { mapArray, createResource, createSignal, createEffect } from "solid-js";
+import { useNavigate } from "@solidjs/router";
 export default function allUsers() {
+  const navigate = useNavigate()
   const [searchInput, setsearchInput] = createSignal("");
 
   const fetchUser = async (search) =>
@@ -7,6 +9,10 @@ export default function allUsers() {
       await fetch(`https://dummyjson.com/users/search?q=${search}`)
     ).json();
   const [users] = createResource(searchInput, fetchUser);
+  function moveToDetails(id){
+    console.log("test",id)
+    navigate(`/userDetails/${id}`)
+  }
 
   return (
     <>
@@ -24,7 +30,7 @@ export default function allUsers() {
       </div>
       <table class="table">
         <thead>
-          <tr>
+          <tr style="#f00;">
             <th>Id</th>
             <th>Age</th>
             <th>Gender</th>
@@ -39,8 +45,8 @@ export default function allUsers() {
         <tbody>
           <For each={users()?.users}>
             {(user, i) => (
-              <tr>
-                <td>{user.id}</td>
+              <tr onClick={()=>moveToDetails(user.id)} style="color: blue; cursor: pointer;">
+                <td >{user.id}</td>
                 <td>{user.age}</td>
                 <td>{user.gender}</td>
                 <td>{user.username}</td>
