@@ -32,28 +32,7 @@ const Home = () => {
                 class="w-100"
                 src="https://wallpapers.com/images/high/woman-shopping-in-general-store-fqitj3bquqmrchto.webp"
                 alt="Images"
-              />
-              {/* <div class="carousel-caption">
-                <div class="container">
-                  <div class="row justify-content-start">
-                    <div class="col-lg-7 text-start">
-                      <p class="fs-4 text-white animated slideInRight">
-                        Welcome to
-                        <strong>GrowMark</strong>
-                      </p>
-                      <h1 class="display-1 text-white mb-4 animated slideInRight">
-                        Get the best out of market
-                      </h1>
-                      <A
-                        href="/category"
-                        class="btn btn-primary rounded-pill py-3 px-5 animated slideInRight"
-                      >
-                        Explore More
-                      </A>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+              />              
             </div>
             <div class="carousel-item">
               <img class="w-100" src="./../img/carousel-2.jpg" alt="Image" />
