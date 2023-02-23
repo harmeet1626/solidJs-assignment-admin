@@ -30,10 +30,10 @@ const Home = () => {
             <div class="carousel-item active">
               <img
                 class="w-100"
-                src="https://media.istockphoto.com/id/1249219777/photo/shopping-online-concept-parcel-or-paper-cartons-with-a-shopping-cart-logo-in-a-trolley-on-a.jpg?s=612x612&w=0&k=20&c=EWKEahyVLY8iAHyirCCDESHRGW37lqUJ7In0SssNSLE="
+                src="https://wallpapers.com/images/high/woman-shopping-in-general-store-fqitj3bquqmrchto.webp"
                 alt="Images"
               />
-              <div class="carousel-caption">
+              {/* <div class="carousel-caption">
                 <div class="container">
                   <div class="row justify-content-start">
                     <div class="col-lg-7 text-start">
@@ -53,7 +53,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div class="carousel-item">
               <img class="w-100" src="./../img/carousel-2.jpg" alt="Image" />
