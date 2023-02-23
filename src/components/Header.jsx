@@ -1,12 +1,11 @@
 import { Routes, Route, useNavigate, A, useLocation } from "@solidjs/router";
 import "../css/bootstrap.min.css";
 import "../css/style.css";
-import '../css/sb-admin-2.min.css'
+import "../css/sb-admin-2.min.css";
 const header = () => {
-
-    return (
-        <>
-            {/* <div
+  return (
+    <>
+      {/* <div
                 class="container-fluid bg-white sticky-top"
                 style=" color:gray; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
             >
@@ -49,21 +48,31 @@ const header = () => {
                 </div>
             </div>
             <br></br> */}
-            <nav class="navbar navbar-light" style="background-color:#4e73df;">
-                <a class="navbar-brand" >
-                    <img src="https://cdn-icons-png.flaticon.com/512/813/813896.png" width="30" height="30" alt="" />
-                </a>
-                <A href="/" class="nav-item nav-link">
-                                    Home
-                                </A>
-                                <A href="/Allusers" class="nav-item nav-link">
-                                    All Users
-                                </A>
-                                <A href="/addUser" class="nav-item nav-link">
-                                    Add Users
-                                </A>
-            </nav>
-        </>
-    )
-}
-export default header
+      <nav
+        class="navbar navbar-light"
+        style="background-color:#4e73df; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+      >
+        <h4 style='color:white'>Welcome to admin portal</h4>
+        
+        {/* <A href="/" class="nav-item nav-link">
+          Home
+        </A>
+        <A href="/Allusers" class="nav-item nav-link">
+          All Users
+        </A>
+        <A href="/addUser" class="nav-item nav-link">
+          Add Users
+        </A> */}
+        <a class="navbar-brand">
+          <img
+            src="https://image.shutterstock.com/image-vector/male-manager-icon-vector-style-260nw-461340628.jpg"
+            width="30"
+            height="30"
+            alt=""
+          />
+        </a>
+      </nav>
+    </>
+  );
+};
+export default header;

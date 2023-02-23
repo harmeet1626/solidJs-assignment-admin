@@ -1,9 +1,11 @@
 import "../style/form.css";
 import { createResource } from "solid-js";
+import { useNavigate } from "@solidjs/router";
 import { createStore } from "solid-js/store";
 import toast, { Toaster } from "solid-toast";
 
 const addUser = () => {
+  const navigate = useNavigate()
   const [userDetails, setuserdetails] = createStore({
     firstName: null,
     lastName: null,
@@ -29,7 +31,8 @@ const addUser = () => {
         }),
       })
         .then((res) => res.json())
-        .then(toast.success("User added!"));
+        .then(toast.success("User added!"))
+        .then(navigate('/Allusers'));
     } else {
       toast.error("please fill details properly");
     }
