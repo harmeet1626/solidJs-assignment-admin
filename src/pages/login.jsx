@@ -11,14 +11,10 @@ export const [userDetails, setuserDetails] = createStore({
   lastName: "",
   username: "",
 });
-export const [isLogin, setisLogin] = createSignal(false);
-// localStorage.setItem("isLogin",'')
-const localStorageKey = "isLogin";
-// export const [isLogin, setisLogin] = createSignal(localStorage.getItem(localStorageKey));
-createEffect(() => {
-  // Update the value of the localStorage item whenever localStorageValue changes
-  localStorage.setItem(localStorageKey, isLogin());
-});
+export const [isLogin, setisLogin] = createSignal(getStatus());
+export function getStatus(){
+  return localStorage.getItem('isLogin')
+}
 
 const login = () => {
   const localStorage = window.localStorage;
@@ -41,6 +37,7 @@ const login = () => {
             toast.error("Check the creadentials");
           } else {
             setisLogin(true);
+            localStorage.setItem('isLogin', JSON.stringify(true))
             toast.success("Welcome!");
             navigate("/");
             setuserDetails(
