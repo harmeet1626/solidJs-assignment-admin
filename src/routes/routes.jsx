@@ -1,4 +1,5 @@
 import { Routes, Route, useNavigate, useLocation } from "@solidjs/router";
+import { createSignal, createEffect } from "solid-js";
 import Login from "../pages/login";
 import { isLogin } from "../pages/login";
 import Home from "../pages/Home";
@@ -9,9 +10,13 @@ import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
 import AddProduct from '../pages/AddProduct'
 const routes = () => {
+  const [state, setstate] = createSignal();
+  createEffect(() => {
+    setstate(isLogin());
+  });
   const navigate = useNavigate();
   function requireAuth(component) {
-    if (!isLogin()) {
+    if (!state()) {
       navigate("/login");
       return null;
     }
