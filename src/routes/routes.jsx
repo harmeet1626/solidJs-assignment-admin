@@ -10,13 +10,10 @@ import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
 import AddProduct from '../pages/AddProduct'
 const routes = () => {
-  const [state, setstate] = createSignal();
-  createEffect(() => {
-    setstate(isLogin());
-  });
+ 
   const navigate = useNavigate();
   function requireAuth(component) {
-    if (!state()) {
+    if (!isLogin()) {
       navigate("/login");
       return null;
     }

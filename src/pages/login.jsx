@@ -12,8 +12,8 @@ export const [userDetails, setuserDetails] = createStore({
   username: "",
 });
 export const [isLogin, setisLogin] = createSignal(getStatus());
-export function getStatus(){
-  return localStorage.getItem('isLogin')
+export function getStatus() {
+  return localStorage.getItem("isLogin");
 }
 
 const login = () => {
@@ -27,8 +27,8 @@ const login = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: username(),
-          password: password(),
+          username: "kminchelle",
+          password: "0lelplR",
         }),
       })
         .then((res) => res.json())
@@ -37,7 +37,7 @@ const login = () => {
             toast.error("Check the creadentials");
           } else {
             setisLogin(true);
-            localStorage.setItem('isLogin', JSON.stringify(true))
+            localStorage.setItem("isLogin", JSON.stringify(true));
             toast.success("Welcome!");
             navigate("/");
             setuserDetails(
