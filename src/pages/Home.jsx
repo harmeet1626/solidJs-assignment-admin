@@ -1,20 +1,9 @@
-import { createSignal,onMount, createResource } from "solid-js";
+import { createSignal, onMount, createResource } from "solid-js";
 import { Routes, Route, useNavigate, A, useLocation } from "@solidjs/router";
-// import "../style/index.css";
+
 const Home = () => {
-  onMount(async () => {
-    getStatus();
-  });
-  const navigate = useNavigate();
-  function movetoProducts() {
-    navigate("/allProducts");
-  }
-  function movetoCategory() {
-    navigate("/category");
-  }
   return (
     <>
-      
       <div class="container-fluid px-0 mb-5">
         <div
           id="header-carousel"
@@ -27,7 +16,7 @@ const Home = () => {
                 class="w-100"
                 src="https://wallpapers.com/images/high/woman-shopping-in-general-store-fqitj3bquqmrchto.webp"
                 alt="Images"
-              />              
+              />
             </div>
             <div class="carousel-item">
               <img class="w-100" src="./../img/carousel-2.jpg" alt="Image" />
@@ -199,10 +188,7 @@ const Home = () => {
                     <span>Clita erat ipsum et lorem et sit sed stet lorem</span>
                   </div>
                 </div>
-                <A
-                  class="btn btn-primary rounded-pill py-3 px-5"
-                  href="/category"
-                >
+                <A class="btn btn-primary rounded-pill py-3 px-5" href="/">
                   Explore More
                 </A>
               </div>

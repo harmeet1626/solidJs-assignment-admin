@@ -23,26 +23,21 @@ const allProducts = () => {
   }
   const getProducts = async (search) => {
     if (searchInput()) {
+      return (await fetch(`https://dummyjson.com/products/search?q=${search}`))
+        .json()
+        .then((res) => {
+          return res.products;
+        });
+    } else {
       return (
         await fetch(
-          `https://dummyjson.com/products/search?q=${search}`
+          `https://dummyjson.com/products/search?q=${search}&limit=${limit()}&skip=${skip()}`
         )
       )
         .json()
         .then((res) => {
           return res.products;
         });
-    }
-    else{
-        return (
-            await fetch(
-              `https://dummyjson.com/products/search?q=${search}&limit=${limit()}&skip=${skip()}`
-            )
-          )
-            .json()
-            .then((res) => {
-              return res.products;
-            });
     }
   };
   const [searchInput, setsearchInput] = createSignal("");
@@ -56,7 +51,7 @@ const allProducts = () => {
   }
   return (
     <>
-    <div class="input-group">
+      <div class="input-group">
         <div
           class="form-outline"
           style="display:flex; position: absolute;
@@ -75,8 +70,7 @@ const allProducts = () => {
         <br></br>
       </div>
       <div class="text-center container py-1">
-        <h2 class="my-2 mt-3 mb-1">
-        </h2>
+        <h2 class="my-2 mt-3 mb-1"></h2>
         <section class="py-5" style="">
           <div class="container px-4 px-lg-5 mt-1">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

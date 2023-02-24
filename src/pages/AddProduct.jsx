@@ -30,7 +30,7 @@ const products = () => {
       })
         .then((res) => res.json())
         .then(toast.success("product added"))
-        .then(navigate('/allProducts'))
+        .then(navigate("/allProducts"));
     } catch (e) {
       toast.error("error occured");
     }

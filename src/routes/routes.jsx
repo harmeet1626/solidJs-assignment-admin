@@ -4,13 +4,12 @@ import Login from "../pages/login";
 import { isLogin } from "../pages/login";
 import Home from "../pages/Home";
 import Allusers from "../pages/AllUsers";
-import addUser from '../pages/addUser'
-import userDetails from '../pages/userDetails'
+import addUser from "../pages/addUser";
+import userDetails from "../pages/userDetails";
 import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
-import AddProduct from '../pages/AddProduct'
+import AddProduct from "../pages/AddProduct";
 const routes = () => {
- 
   const navigate = useNavigate();
   function requireAuth(component) {
     if (!isLogin()) {
@@ -28,7 +27,10 @@ const routes = () => {
         <Route path="/addUser" component={requireAuth(addUser)} />
         <Route path="/userDetails/:id" component={requireAuth(userDetails)} />
         <Route path="/allProducts" component={requireAuth(AllProducts)} />
-        <Route path="/productDetails/:id" component={requireAuth(ProductDetails)} />
+        <Route
+          path="/productDetails/:id"
+          component={requireAuth(ProductDetails)}
+        />
         <Route path="/addProduct" component={requireAuth(AddProduct)} />
       </Routes>
     </>

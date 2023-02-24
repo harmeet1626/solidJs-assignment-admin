@@ -11,7 +11,7 @@ function App() {
     setstate(isLogin());
   });
   onCleanup(() => {
-    localStorage.removeItem('isLogin')
+    localStorage.removeItem("isLogin");
   });
 
   return (

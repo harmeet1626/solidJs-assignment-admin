@@ -80,17 +80,18 @@ const productDetails = () => {
   }
   return (
     <form onsubmit={submit}>
-      <div class="container"><br></br>
+      <div class="container">
+        <br></br>
         <h1>Update Product</h1>
-          <div align="right">
-            <button
-              onClick={() => DeleteProduct()}
-              type="button"
-              class="btn btn-danger"
-            >
-              Delete Product
-            </button>
-          </div>
+        <div align="right">
+          <button
+            onClick={() => DeleteProduct()}
+            type="button"
+            class="btn btn-danger"
+          >
+            Delete Product
+          </button>
+        </div>
         <div style="display flex">
           <p>Please fill in this form to create an account.</p>
         </div>
