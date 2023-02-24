@@ -1,6 +1,6 @@
 import Navbar from "./components/navBar";
 import Routes from "./routes/routes";
-import { createSignal, createEffect } from "solid-js";
+import { createSignal, createEffect, onCleanup } from "solid-js";
 import { isLogin } from "./pages/login";
 import toast, { Toaster } from "solid-toast";
 import Header from "./components/Header";
@@ -9,6 +9,9 @@ function App() {
   const [state, setstate] = createSignal();
   createEffect(() => {
     setstate(isLogin());
+  });
+  onCleanup(() => {
+    localStorage.removeItem('isLogin')
   });
 
   return (

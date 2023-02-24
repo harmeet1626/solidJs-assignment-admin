@@ -8,6 +8,7 @@ export default function navbar() {
   const navigate = useNavigate();
   function logout() {
     setisLogin(false);
+    localStorage.removeItem("isLogin");
     isLogin();
     navigate("/login");
   }
