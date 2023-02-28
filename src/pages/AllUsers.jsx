@@ -4,8 +4,9 @@ import toast from "solid-toast";
 export default function allUsers() {
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = createSignal("");
-  const [limit, setlimit] = createSignal(13);
+  const [limit, setlimit] = createSignal(10);
   const [skip, setskip] = createSignal(0);
+
   const fetchUser = async (search) => {
     if (searchInput()) {
       return await (
@@ -20,22 +21,23 @@ export default function allUsers() {
     }
   };
   const [users, { refetch }] = createResource(searchInput, fetchUser);
+  const totalPages = () => users()?.total - limit();
   function moveToDetails(id) {
     navigate(`/userDetails/${id}`);
   }
   function next() {
-    if (skip() > 80) {
+    if (skip() >= totalPages()) {
       toast.error("No more records");
     } else {
-      setskip(skip() + 13);
+      setskip(skip() + 10);
       refetch();
     }
   }
   function previous() {
-    if (skip() < 13) {
+    if (skip() <= 0) {
       toast.error("No more records");
     } else {
-      setskip(skip() - 13);
+      setskip(skip() - 10);
       refetch();
     }
   }

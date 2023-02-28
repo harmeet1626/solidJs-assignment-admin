@@ -8,10 +8,8 @@ import "../dashboard style/css/examples.css";
 
 const Home = () => {
   return (
-    <div><br></br>
-
-
-
+    <div>
+      <br></br>
 
       <div class="body flex-grow-1 px-3">
         <div class="container-lg">
@@ -201,7 +199,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
+
           <div class="row">
             <div class="col-sm-6 col-lg-4">
               <div class="card mb-4" style="--cui-card-cap-bg: #3b5998">
@@ -679,9 +677,7 @@ const Home = () => {
                       </thead>
                       <tbody>
                         <tr class="align-middle">
-                          <td class="text-center">
-                            
-                          </td>
+                          <td class="text-center"></td>
                           <td>
                             <div>Yiorgos Avraamu</div>
                             <div class="small text-medium-emphasis">
@@ -754,9 +750,7 @@ const Home = () => {
                           </td>
                         </tr>
                         <tr class="align-middle">
-                          <td class="text-center">
-                            
-                          </td>
+                          <td class="text-center"></td>
                           <td>
                             <div>Avram Tarasios</div>
                             <div class="small text-medium-emphasis">
@@ -829,9 +823,7 @@ const Home = () => {
                           </td>
                         </tr>
                         <tr class="align-middle">
-                          <td class="text-center">
-                            
-                          </td>
+                          <td class="text-center"></td>
                           <td>
                             <div>Quintin Ed</div>
                             <div class="small text-medium-emphasis">
@@ -904,9 +896,7 @@ const Home = () => {
                           </td>
                         </tr>
                         <tr class="align-middle">
-                          <td class="text-center">
-                            
-                          </td>
+                          <td class="text-center"></td>
                           <td>
                             <div>Enéas Kwadwo</div>
                             <div class="small text-medium-emphasis">
@@ -979,9 +969,7 @@ const Home = () => {
                           </td>
                         </tr>
                         <tr class="align-middle">
-                          <td class="text-center">
-                            
-                          </td>
+                          <td class="text-center"></td>
                           <td>
                             <div>Agapetus Tadeáš</div>
                             <div class="small text-medium-emphasis">
@@ -1054,9 +1042,7 @@ const Home = () => {
                           </td>
                         </tr>
                         <tr class="align-middle">
-                          <td class="text-center">
-                            
-                          </td>
+                          <td class="text-center"></td>
                           <td>
                             <div>Friderik Dávid</div>
                             <div class="small text-medium-emphasis">
