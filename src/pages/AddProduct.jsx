@@ -36,7 +36,7 @@ const products = () => {
     }
   }
   return (
-    <div>
+    <div style={"padding-left:40px; padding-top:30px"}>
       <form onsubmit={submit}>
         <div class="container">
           <h1>Add Product</h1>
@@ -48,17 +48,22 @@ const products = () => {
           <label for="text">
             <b>Title</b>
           </label>
+
           <input
+            style={"width:400px; margin-left: 272px;"}
             onInput={(e) => setproductDetails("title", e.currentTarget.value)}
             type="text"
             placeholder="Enter Title"
             required
           />
+          <br></br>
 
           <label for="price">
             <b>Category</b>
           </label>
+
           <input
+            style={"width:400px; margin-left: 237px;"}
             onInput={(e) =>
               setproductDetails("category", e.currentTarget.value)
             }
@@ -66,29 +71,38 @@ const products = () => {
             placeholder="Enter Category"
             required
           />
+          <br></br>
           <label for="price">
             <b>Price</b>
           </label>
+
           <input
+            style={"width:400px; margin-left: 269px;"}
             onInput={(e) => setproductDetails("price", e.currentTarget.value)}
             type="text"
             placeholder="Enter Price"
             required
           />
+          <br></br>
           <label for="price">
             <b>Brand</b>
           </label>
+
           <input
+            style={"width:400px; margin-left: 262px;"}
             onInput={(e) => setproductDetails("brand", e.currentTarget.value)}
             type="text"
             placeholder="Enter Brand"
             required
           />
+          <br></br>
 
           <label for="email">
             <b>Discount Percentage</b>
           </label>
+
           <input
+            style={"width:400px; margin-left: 153px;"}
             onInput={(e) =>
               setproductDetails("discountPercentage", e.currentTarget.value)
             }
@@ -96,37 +110,44 @@ const products = () => {
             placeholder="Enter Discount Percentage"
             required
           />
+          <br></br>
           <label>
             <b>Stock</b>
           </label>
+
           <input
+            style={"width:400px; margin-left: 266px;"}
             onInput={(e) => setproductDetails("stock", e.currentTarget.value)}
             type="text"
             placeholder="Enter stock"
             required
           />
-          <label for="text">
-            <b>Description</b>
-          </label>
           <br></br>
-          <textarea
-            onInput={(e) =>
-              setproductDetails("description", e.currentTarget.value)
-            }
-            rows="4"
-            cols="50"
-            name="comment"
-            form="usrform"
-          >
-            {/* {Product()?.description} */}
-          </textarea>
-          <br></br>
+          <div style={"display:flex"}>
+            <label for="text">
+              <b>Description</b>
+            </label>
+
+            <textarea
+              style={" margin-left: 228px;"}
+              onInput={(e) =>
+                setproductDetails("description", e.currentTarget.value)
+              }
+              rows="4"
+              cols="50"
+              name="comment"
+              form="usrform"
+            >
+              {/* {Product()?.description} */}
+            </textarea>
+          </div>
+
           <hr />
           <p>
             By creating an account you agree to our <a>Terms & Privacy</a>.
           </p>
 
-          <button type="submit" class="registerbtn">
+          <button style={"width: 820px;"} type="submit" class="registerbtn">
             Add
           </button>
         </div>

@@ -42,44 +42,16 @@ export default function navbar() {
         <div class="sidebar-heading"></div>
 
         <li class="nav-item">
-          <A
-            class="nav-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
-            href="/Allusers"
-          >
+          <A class="nav-link collapsed" href="/Allusers">
             <span>All Users</span>
           </A>
-          <A
-            class="nav-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
-            href="/addUser"
-          >
+          <A class="nav-link collapsed" href="/addUser">
             <span>Add User</span>
           </A>
-          <A
-            class="nav-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
-            href="/allProducts"
-          >
+          <A class="nav-link collapsed" href="/allProducts">
             <span>All Products</span>
           </A>
-          <A
-            class="nav-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
-            href="/addProduct"
-          >
+          <A class="nav-link collapsed" href="/addProduct">
             <span>Add Products</span>
           </A>
         </li>
@@ -89,10 +61,6 @@ export default function navbar() {
           <p
             style="cursor:pointer"
             class="nav-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
             onClick={() => logout()}
           >
             <span>Logout</span>

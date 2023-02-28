@@ -79,115 +79,135 @@ const productDetails = () => {
     }
   }
   return (
-    <form onsubmit={submit}>
-      <div class="container">
-        <br></br>
-        <h1>Update Product</h1>
-        <div align="right">
-          <button
-            onClick={() => DeleteProduct()}
-            type="button"
-            class="btn btn-danger"
-          >
-            Delete Product
-          </button>
-        </div>
-        <div style="display flex">
-          <p>Please fill in this form to create an account.</p>
-        </div>
-        <hr></hr>
+    <div>
+      <div style={"padding-left:40px; padding-top:30px"}>
+        <form onsubmit={submit}>
+          <div class="container">
+            <br></br>
+            <h1>Update Product</h1>
+            <div align="right">
+              <button
+                onClick={() => DeleteProduct()}
+                type="button"
+                class="btn btn-danger"
+              >
+                Delete Product
+              </button>
+            </div>
+            <div style="display flex">
+              <p>Please fill in this form to create an account.</p>
+            </div>
+            <hr></hr>
 
-        <label for="text">
-          <b>Title</b>
-        </label>
-        <input
-          value={Product()?.title}
-          onInput={(e) => setproductDetails("title", e.currentTarget.value)}
-          type="text"
-          placeholder="Enter Title"
-          required
-        />
+            <label for="text">
+              <b>Title</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 272px;"}
+              value={Product()?.title}
+              onInput={(e) => setproductDetails("title", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter Title"
+              required
+            />
+            <br></br>
 
-        <label for="price">
-          <b>Category</b>
-        </label>
-        <input
-          value={Product()?.category}
-          onInput={(e) => setproductDetails("category", e.currentTarget.value)}
-          type="text"
-          placeholder="Enter Category"
-          required
-        />
-        <label for="price">
-          <b>Price</b>
-        </label>
-        <input
-          value={Product()?.price}
-          onInput={(e) => setproductDetails("age", e.currentTarget.value)}
-          type="text"
-          placeholder="Enter Price"
-          required
-        />
-        <label for="price">
-          <b>Brand</b>
-        </label>
-        <input
-          value={Product()?.brand}
-          onInput={(e) => setproductDetails("brand", e.currentTarget.value)}
-          type="text"
-          placeholder="Enter Brand"
-          required
-        />
+            <label for="price">
+              <b>Category</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 237px;"}
+              value={Product()?.category}
+              onInput={(e) =>
+                setproductDetails("category", e.currentTarget.value)
+              }
+              type="text"
+              placeholder="Enter Category"
+              required
+            />
+            <br></br>
+            <label for="price">
+              <b>Price</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 269px;"}
+              value={Product()?.price}
+              onInput={(e) => setproductDetails("age", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter Price"
+              required
+            />
+            <br></br>
+            <label for="price">
+              <b>Brand</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 262px;"}
+              value={Product()?.brand}
+              onInput={(e) => setproductDetails("brand", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter Brand"
+              required
+            />
+            <br></br>
 
-        <label for="email">
-          <b>DiscountPercentage</b>
-        </label>
-        <input
-          value={`${Product()?.discountPercentage}%`}
-          onInput={(e) =>
-            setproductDetails("discountPercentage", e.currentTarget.value)
-          }
-          type="text"
-          placeholder="Enter Discount Percentage"
-          required
-        />
-        <label>
-          <b>Stock</b>
-        </label>
-        <input
-          value={`${Product()?.stock}`}
-          onInput={(e) => setproductDetails("stock", e.currentTarget.value)}
-          type="text"
-          placeholder="Enter stock"
-          required
-        />
-        <label for="text">
-          <b>Description</b>
-        </label>
-        <br></br>
-        <textarea
-          value={Product()?.description}
-          onInput={(e) =>
-            setproductDetails("description", e.currentTarget.value)
-          }
-          rows="4"
-          cols="50"
-          name="comment"
-          form="usrform"
-        >
-          {Product()?.description}
-        </textarea>
-        <br></br>
-        <hr />
-        <p>
-          By creating an account you agree to our <a>Terms & Privacy</a>.
-        </p>
+            <label for="email">
+              <b>DiscountPercentage</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 153px;"}
+              value={`${Product()?.discountPercentage}%`}
+              onInput={(e) =>
+                setproductDetails("discountPercentage", e.currentTarget.value)
+              }
+              type="text"
+              placeholder="Enter Discount Percentage"
+              required
+            />
+            <br></br>
+            <label>
+              <b>Stock</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 266px;"}
+              value={`${Product()?.stock}`}
+              onInput={(e) => setproductDetails("stock", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter stock"
+              required
+            />
+            <br></br>
+            <div style={"display:flex"}></div>
+            <label for="text">
+              <b>Description</b>
+            </label>
+            <br></br>
+            <textarea
+              style={" margin-left: 228px;"}
+              value={Product()?.description}
+              onInput={(e) =>
+                setproductDetails("description", e.currentTarget.value)
+              }
+              rows="4"
+              cols="50"
+              name="comment"
+              form="usrform"
+            >
+              {Product()?.description}
+            </textarea>
+            <br></br>
+            <hr />
+            <p>
+              By creating an account you agree to our <a>Terms & Privacy</a>.
+            </p>
 
-        <button type="submit" class="registerbtn">
-          Update
-        </button>
+            <button style={"width: 725px;"} type="submit" class="registerbtn">
+              Update
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 };
 export default productDetails;

@@ -39,64 +39,76 @@ const addUser = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div class="container">
-          <h1>Add New User</h1>
-          <p>Please fill in this form to create an account.</p>
-          <hr></hr>
+      <div style={"padding-left:40px; padding-top:30px"}>
+        <form onSubmit={handleSubmit}>
+          <div class="container">
+            <h1>Add New User</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr></hr>
 
-          <label for="text">
-            <b>Firstname</b>
-          </label>
-          <input
-            onInput={(e) => setuserdetails("firstName", e.currentTarget.value)}
-            type="text"
-            placeholder="Enter firstname"
-            required
-          />
+            <label for="text">
+              <b>Firstname</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 272px;"}
+              onInput={(e) =>
+                setuserdetails("firstName", e.currentTarget.value)
+              }
+              type="text"
+              placeholder="Enter firstname"
+              required
+            />
+            <br></br>
 
-          <label for="text">
-            <b>Lastname</b>
-          </label>
-          <input
-            onInput={(e) => setuserdetails("lastName", e.currentTarget.value)}
-            type="text"
-            placeholder="Enter lastname"
-            required
-          />
+            <label for="text">
+              <b>Lastname</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 274px;"}
+              onInput={(e) => setuserdetails("lastName", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter lastname"
+              required
+            />
+            <br></br>
 
-          <label for="email">
-            <b>Age</b>
-          </label>
-          <input
-            onInput={(e) => setuserdetails("age", e.currentTarget.value)}
-            type="text"
-            placeholder="Enter age"
-            required
-          />
+            <label for="email">
+              <b>Age</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 319px;"}
+              onInput={(e) => setuserdetails("age", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter age"
+              required
+            />
+            <br></br>
 
-          <label for="email">
-            <b>Email</b>
-          </label>
-          <input
-            onInput={(e) => setuserdetails("email", e.currentTarget.value)}
-            type="text"
-            placeholder="Enter Email"
-            name="email"
-            id="email"
-            required
-          />
+            <label for="email">
+              <b>Email</b>
+            </label>
+            <input
+              style={"width:400px; margin-left: 305px;"}
+              onInput={(e) => setuserdetails("email", e.currentTarget.value)}
+              type="text"
+              placeholder="Enter Email"
+              name="email"
+              id="email"
+              required
+            />
+            <br></br>
 
-          <hr />
-          <p>
-            By creating an account you agree to our <a>Terms & Privacy</a>.
-          </p>
+            <hr />
+            <p>
+              By creating an account you agree to our <a>Terms & Privacy</a>.
+            </p>
 
-          <button type="submit" class="registerbtn">
-            Add
-          </button>
-        </div>
-      </form>
+            <button style={"width: 530px;"} type="submit" class="registerbtn">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
