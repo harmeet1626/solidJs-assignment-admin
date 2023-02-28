@@ -7,7 +7,7 @@ const header = () => {
     <>
       <nav
         class="navbar navbar-light"
-        style="background-color:#4e73df; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+        style="background-color:white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
       >
         <h4 style="color:white">Welcome to admin portal</h4>
 
