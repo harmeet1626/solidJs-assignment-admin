@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate, A, useLocation } from "@solidjs/router";
 const Home = () => {
   return (
     <>
-      <div class="pagetitle">
+      <div class="pagetitle" style={'margin-left:20px'}>
         <br></br>
         <h1>Dashboard</h1>
       </div>
