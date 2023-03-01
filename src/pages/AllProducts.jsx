@@ -9,7 +9,7 @@ const allProducts = () => {
     if (skip() >= totalPages()) {
       toast.error("No more records");
     } else {
-      setskip(skip() + 8);
+      setskip(skip() + limit());
       refetch();
     }
   }
@@ -17,7 +17,7 @@ const allProducts = () => {
     if (skip() <= 0) {
       toast.error("No more records");
     } else {
-      setskip(skip() - 8);
+      setskip(skip() - limit());
       refetch();
     }
   }

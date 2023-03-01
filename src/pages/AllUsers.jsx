@@ -29,7 +29,7 @@ export default function allUsers() {
     if (skip() >= totalPages()) {
       toast.error("No more records");
     } else {
-      setskip(skip() + 10);
+      setskip(skip() + limit());
       refetch();
     }
   }
@@ -37,7 +37,7 @@ export default function allUsers() {
     if (skip() <= 0) {
       toast.error("No more records");
     } else {
-      setskip(skip() - 10);
+      setskip(skip() - limit());
       refetch();
     }
   }
