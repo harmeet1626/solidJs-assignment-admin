@@ -183,7 +183,7 @@ const productDetails = () => {
             </label>
             <br></br>
             <textarea
-              style={" margin-left: 228px;"}
+              style={" margin-left: 303px;"}
               value={Product()?.description}
               onInput={(e) =>
                 setproductDetails("description", e.currentTarget.value)
