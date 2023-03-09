@@ -4,7 +4,7 @@ import toast from "solid-toast";
 export default function allUsers() {
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = createSignal("");
-  const [limit, setlimit] = createSignal(10);
+  const [limit, setlimit] = createSignal(20);
   const [skip, setskip] = createSignal(0);
 
   const fetchUser = async (search) => {
@@ -42,12 +42,39 @@ export default function allUsers() {
     }
   }
 
+  // function isAtPageBottom() {
+  //   return document.documentElement.scrollTop + window.innerHeight >= document.documentElement.scrollHeight;
+  // }
+  // function handlePageBottom() {
+  //   console.log('You have reached the bottom of the page!');
+  //   next()
+  //   scrollToTop()
+  // }
+  // function scrollToTop() {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth'
+  //   });
+  // }
+
+  // createEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // });
+
+  // const handleScroll = () => {
+  //   if (isAtPageBottom()) {
+  //     handlePageBottom();
+  //   }
+  // };
+
+
   return (
     <>
       <div class="input-group">
         <div
           class="form-outline"
-          style="display:flex; position: absolute;
+          style=" position: absolute;
           right: 1px;
           margin-top: 1%;
           margin-bottom: 1%;"
@@ -59,6 +86,7 @@ export default function allUsers() {
             class="form-control"
             placeholder="search user"
           />
+          <button class="btn btn-primary" onClick={() => navigate('/addUser')}>Add user</button>
         </div>
         <br></br>
       </div>

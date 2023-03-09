@@ -283,7 +283,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div class="row">
+          {/*  <div class="row">
             <div class="col-md-12">
               <div class="card mb-4">
                 <div class="card-header">Traffic &amp; Sales</div>
@@ -1119,8 +1119,8 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> 
+          </div>*/}
         </div>
       </div>
     </div>

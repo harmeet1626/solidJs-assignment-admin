@@ -55,7 +55,7 @@ const allProducts = () => {
       <div class="input-group">
         <div
           class="form-outline"
-          style="display:flex; position: absolute;
+          style=" position: absolute;
           right: 1px;
           margin-top: 1%;
           margin-bottom: 1%;"
@@ -67,6 +67,7 @@ const allProducts = () => {
             class="form-control"
             placeholder="search product"
           />
+          <button class="btn btn-primary" onClick={() => navigate('/addProduct')}>Add Product</button>
         </div>
         <br></br>
       </div>
