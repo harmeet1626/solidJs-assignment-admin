@@ -4,7 +4,7 @@ import toast from "solid-toast";
 export default function allUsers() {
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = createSignal("");
-  const [limit, setlimit] = createSignal(20);
+  const [limit, setlimit] = createSignal(30);
   const [skip, setskip] = createSignal(0);
 
   const fetchUser = async (search) => {
@@ -42,36 +42,26 @@ export default function allUsers() {
     }
   }
 
-  // function isAtPageBottom() {
-  //   return document.documentElement.scrollTop + window.innerHeight >= document.documentElement.scrollHeight;
-  // }
-  // function handlePageBottom() {
-  //   console.log('You have reached the bottom of the page!');
-  //   next()
-  //   scrollToTop()
-  // }
-  // function scrollToTop() {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth'
-  //   });
-  // }
+  // window.onscroll = function () {
+  //   var d = document.documentElement;
+  //   var offset = d.scrollTop + window.innerHeight;
+  //   var height = d.offsetHeight;
 
-  // createEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // });
+  //   console.log('offset = ' + offset);
+  //   console.log('height = ' + height);
 
-  // const handleScroll = () => {
-  //   if (isAtPageBottom()) {
-  //     handlePageBottom();
+  //   if (offset >= height) {
+  //     console.log('At the bottom');
+  //     next()
   //   }
   // };
-
+  function test() {
+    console.log(pagination())
+  }
 
   return (
     <>
-      <div class="input-group">
+      <div class="input-group"><button onClick={() => test()}>Test</button>
         <div
           class="form-outline"
           style=" position: absolute;

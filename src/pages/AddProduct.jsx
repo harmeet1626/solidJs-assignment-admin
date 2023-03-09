@@ -1,5 +1,6 @@
 import { createStore } from "solid-js/store";
 import { useNavigate } from "@solidjs/router";
+import '../style/input.css'
 import toast from "solid-toast";
 const products = () => {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ const products = () => {
   });
   function submit() {
     event.preventDefault();
+    console.log(typeof(productDetails.title))
+    
     try {
       fetch("https://dummyjson.com/products/add", {
         method: "POST",
@@ -50,6 +53,7 @@ const products = () => {
           </label>
 
           <input
+          class="my-input"
             style={"width:400px; margin-left: 272px;"}
             onInput={(e) => setproductDetails("title", e.currentTarget.value)}
             type="text"
@@ -63,6 +67,7 @@ const products = () => {
           </label>
 
           <input
+          class="my-input"
             style={"width:400px; margin-left: 237px;"}
             onInput={(e) =>
               setproductDetails("category", e.currentTarget.value)
@@ -77,9 +82,10 @@ const products = () => {
           </label>
 
           <input
+          class="my-input"
             style={"width:400px; margin-left: 269px;"}
             onInput={(e) => setproductDetails("price", e.currentTarget.value)}
-            type="text"
+            type="number"
             placeholder="Enter Price"
             required
           />
@@ -89,6 +95,7 @@ const products = () => {
           </label>
 
           <input
+          class="my-input"
             style={"width:400px; margin-left: 262px;"}
             onInput={(e) => setproductDetails("brand", e.currentTarget.value)}
             type="text"
@@ -97,16 +104,17 @@ const products = () => {
           />
           <br></br>
 
-          <label for="email">
+          <label >
             <b>Discount Percentage</b>
           </label>
 
           <input
+          class="my-input"
+            type="text"
             style={"width:400px; margin-left: 153px;"}
             onInput={(e) =>
               setproductDetails("discountPercentage", e.currentTarget.value)
             }
-            type="text"
             placeholder="Enter Discount Percentage"
             required
           />
@@ -116,9 +124,10 @@ const products = () => {
           </label>
 
           <input
+          class="my-input"
             style={"width:400px; margin-left: 266px;"}
             onInput={(e) => setproductDetails("stock", e.currentTarget.value)}
-            type="text"
+            type="Number"
             placeholder="Enter stock"
             required
           />

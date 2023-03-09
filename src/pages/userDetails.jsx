@@ -2,6 +2,7 @@ import { createResource } from "solid-js";
 import { useParams, useNavigate } from "@solidjs/router";
 import { createStore } from "solid-js/store";
 import toast from "solid-toast";
+import '../style/input.css'
 
 const userDetails = () => {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ const userDetails = () => {
               <b>Firstname</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 272px;"}
               value={users()?.firstName}
               onInput={(e) =>
@@ -88,6 +90,7 @@ const userDetails = () => {
               <b>Lastname</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 274px;"}
               value={users()?.lastName}
               onInput={(e) => setuserdetails("lastName", e.currentTarget.value)}
@@ -101,10 +104,11 @@ const userDetails = () => {
               <b>Age</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 319px;"}
               value={users()?.age}
               onInput={(e) => setuserdetails("age", e.currentTarget.value)}
-              type="text"
+              type="number"
               placeholder="Enter age"
               required
             />
@@ -114,10 +118,11 @@ const userDetails = () => {
               <b>Email</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 305px;"}
               value={users()?.email}
               onInput={(e) => setuserdetails("email", e.currentTarget.value)}
-              type="text"
+              type="email"
               placeholder="Enter Email"
               name="email"
               id="email"

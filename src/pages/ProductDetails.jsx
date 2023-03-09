@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "@solidjs/router";
 import { createSignal, For, createResource } from "solid-js";
 import { createStore, produce } from "solid-js/store";
 import toast, { Toaster } from "solid-toast";
+import '../style/input.css'
 const productDetails = () => {
   const Params = useParams();
   function getId() {
@@ -103,6 +104,7 @@ const productDetails = () => {
               <b>Title</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 272px;"}
               value={Product()?.title}
               onInput={(e) => setproductDetails("title", e.currentTarget.value)}
@@ -116,6 +118,7 @@ const productDetails = () => {
               <b>Category</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 237px;"}
               value={Product()?.category}
               onInput={(e) =>
@@ -130,10 +133,11 @@ const productDetails = () => {
               <b>Price</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 269px;"}
               value={Product()?.price}
               onInput={(e) => setproductDetails("age", e.currentTarget.value)}
-              type="text"
+              type="number"
               placeholder="Enter Price"
               required
             />
@@ -142,6 +146,7 @@ const productDetails = () => {
               <b>Brand</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 262px;"}
               value={Product()?.brand}
               onInput={(e) => setproductDetails("brand", e.currentTarget.value)}
@@ -155,6 +160,7 @@ const productDetails = () => {
               <b>DiscountPercentage</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 153px;"}
               value={`${Product()?.discountPercentage}%`}
               onInput={(e) =>
@@ -169,10 +175,11 @@ const productDetails = () => {
               <b>Stock</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 266px;"}
               value={`${Product()?.stock}`}
               onInput={(e) => setproductDetails("stock", e.currentTarget.value)}
-              type="text"
+              type="number"
               placeholder="Enter stock"
               required
             />

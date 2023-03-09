@@ -1,0 +1,12 @@
+.my-input {
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+.my-input::-webkit-outer-spin-button,
+.my-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

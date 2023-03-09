@@ -49,6 +49,7 @@ const allProducts = () => {
   function moveToDetails(id) {
     navigate(`/productDetails/${id}`);
   }
+  
 
   return (
     <>

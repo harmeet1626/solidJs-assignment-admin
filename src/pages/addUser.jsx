@@ -50,6 +50,7 @@ const addUser = () => {
               <b>Firstname</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 272px;"}
               onInput={(e) =>
                 setuserdetails("firstName", e.currentTarget.value)
@@ -64,6 +65,7 @@ const addUser = () => {
               <b>Lastname</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 274px;"}
               onInput={(e) => setuserdetails("lastName", e.currentTarget.value)}
               type="text"
@@ -76,9 +78,10 @@ const addUser = () => {
               <b>Age</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 319px;"}
               onInput={(e) => setuserdetails("age", e.currentTarget.value)}
-              type="text"
+              type="number"
               placeholder="Enter age"
               required
             />
@@ -88,9 +91,10 @@ const addUser = () => {
               <b>Email</b>
             </label>
             <input
+            class="my-input"
               style={"width:400px; margin-left: 305px;"}
               onInput={(e) => setuserdetails("email", e.currentTarget.value)}
-              type="text"
+              type="email"
               placeholder="Enter Email"
               name="email"
               id="email"
