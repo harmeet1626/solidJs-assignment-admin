@@ -61,7 +61,7 @@ export default function allUsers() {
 
   return (
     <>
-      <div class="input-group"><button onClick={() => test()}>Test</button>
+      <div class="input-group">
         <div
           class="form-outline"
           style=" position: absolute;
