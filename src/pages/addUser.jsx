@@ -1,4 +1,5 @@
 import "../style/form.css";
+import '../style/input.css'
 import { createResource } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createStore } from "solid-js/store";
