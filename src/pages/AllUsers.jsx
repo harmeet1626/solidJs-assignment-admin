@@ -3,6 +3,7 @@ import { useNavigate } from "@solidjs/router";
 import { createStore, produce } from "solid-js/store";
 import toast from "solid-toast";
 export default function allUsers() {
+  const [isLoading, setisLoading] = createSignal(false)
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = createSignal("");
   const [limit, setlimit] = createSignal(40);
@@ -10,6 +11,7 @@ export default function allUsers() {
   const [list, setlist] = createStore([])
 
   const fetchUser = async (search) => {
+    setisLoading(true)
     if (searchInput()) {
       return await (
         await fetch(`https://dummyjson.com/users/search?q=${search}`)
@@ -25,11 +27,13 @@ export default function allUsers() {
         setlist(produce(s => {
           s.push(...res.users)
         }))
+        setisLoading(false)
+        setisAtBottomFlag(false)
       })
     }
   };
   const [users, { refetch }] = createResource(searchInput, fetchUser);
-  const totalPages = () => users()?.total - limit();
+  const totalPages = () => 100 - limit();
   function moveToDetails(id) {
     navigate(`/userDetails/${id}`);
   }
@@ -45,8 +49,8 @@ export default function allUsers() {
     if (skip() <= 0) {
       toast.error("No more records");
     } else {
-      setskip(skip() - limit());
-      refetch();
+      setskip(skip() - limit())
+      refetch()
     }
   }
   function isUserAtBottom() {
@@ -56,13 +60,20 @@ export default function allUsers() {
 
     return (scrollPosition + windowHeight >= bodyHeight);
   }
+  const [isAtBottomFlag, setisAtBottomFlag] = createSignal(false)
+
+
   window.addEventListener('scroll', function () {
-    if (isUserAtBottom()) {
+    if (isUserAtBottom() && !isAtBottomFlag()) {
+      setisAtBottomFlag(true);
       // User has reached the bottom of the page
       // Fetch more data
+      console.log('bottom!')
       next();
     }
   });
+
+
   // function test() {
   //   console.log(list)
   // }
@@ -123,6 +134,7 @@ export default function allUsers() {
             )}
           </For>
         </tbody>
+        {isLoading() == true ? <div>Loading...</div> : null}
       </table>
       {/* <ul class="pagination">
         <li class="page-item">
