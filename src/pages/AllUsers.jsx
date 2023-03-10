@@ -39,12 +39,6 @@ export default function allUsers() {
     } else {
       setskip(skip() + limit());
       refetch();
-      // window.scrollTo(50, 50);
-      //   document.getElementById('table').scrollIntoView({
-      //     behavior: 'auto',
-      //     block: 'center',
-      //     inline: 'center'
-      // });
     }
   }
   function previous() {
@@ -55,23 +49,27 @@ export default function allUsers() {
       refetch();
     }
   }
+  function isUserAtBottom() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+    const bodyHeight = document.body.offsetHeight || 0;
 
-  window.onscroll = function () {
-    var d = document.documentElement;
-    var offset = d.scrollTop + window.innerHeight;
-    var height = d.offsetHeight;
-    if (offset >= height) {
-      console.log('At the bottom');
-      next()
+    return (scrollPosition + windowHeight >= bodyHeight);
+  }
+  window.addEventListener('scroll', function () {
+    if (isUserAtBottom()) {
+      // User has reached the bottom of the page
+      // Fetch more data
+      next();
     }
-  };
+  });
   // function test() {
   //   console.log(list)
   // }
 
   return (
     <>
-    {/* <button onClick={() => test()}>test</button> */}
+      {/* <button onClick={() => test()}>test</button> */}
       <div class="input-group">
         <div
           class="form-outline"
