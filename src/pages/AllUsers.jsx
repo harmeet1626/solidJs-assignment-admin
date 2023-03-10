@@ -1,23 +1,31 @@
-import { mapArray, createResource, createSignal, createEffect } from "solid-js";
+import { mapArray, createResource, createSignal, createEffect, onMount } from "solid-js";
 import { useNavigate } from "@solidjs/router";
+import { createStore, produce } from "solid-js/store";
 import toast from "solid-toast";
 export default function allUsers() {
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = createSignal("");
-  const [limit, setlimit] = createSignal(30);
+  const [limit, setlimit] = createSignal(40);
   const [skip, setskip] = createSignal(0);
+  const [list, setlist] = createStore([])
 
   const fetchUser = async (search) => {
     if (searchInput()) {
       return await (
         await fetch(`https://dummyjson.com/users/search?q=${search}`)
-      ).json();
+      ).json().then(res => {
+        setlist([...res.users])
+      })
     } else {
       return await (
         await fetch(
           `https://dummyjson.com/users?limit=${limit()}&skip=${skip()}`
         )
-      ).json();
+      ).json().then(res => {
+        setlist(produce(s => {
+          s.push(...res.users)
+        }))
+      })
     }
   };
   const [users, { refetch }] = createResource(searchInput, fetchUser);
@@ -31,6 +39,12 @@ export default function allUsers() {
     } else {
       setskip(skip() + limit());
       refetch();
+      // window.scrollTo(50, 50);
+      //   document.getElementById('table').scrollIntoView({
+      //     behavior: 'auto',
+      //     block: 'center',
+      //     inline: 'center'
+      // });
     }
   }
   function previous() {
@@ -42,25 +56,22 @@ export default function allUsers() {
     }
   }
 
-  // window.onscroll = function () {
-  //   var d = document.documentElement;
-  //   var offset = d.scrollTop + window.innerHeight;
-  //   var height = d.offsetHeight;
-
-  //   console.log('offset = ' + offset);
-  //   console.log('height = ' + height);
-
-  //   if (offset >= height) {
-  //     console.log('At the bottom');
-  //     next()
-  //   }
-  // };
-  function test() {
-    console.log(pagination())
-  }
+  window.onscroll = function () {
+    var d = document.documentElement;
+    var offset = d.scrollTop + window.innerHeight;
+    var height = d.offsetHeight;
+    if (offset >= height) {
+      console.log('At the bottom');
+      next()
+    }
+  };
+  // function test() {
+  //   console.log(list)
+  // }
 
   return (
     <>
+    {/* <button onClick={() => test()}>test</button> */}
       <div class="input-group">
         <div
           class="form-outline"
@@ -80,7 +91,7 @@ export default function allUsers() {
         </div>
         <br></br>
       </div>
-      <table class="table" style="margin-top:5%;">
+      <table class="table" id="table" style="margin-top:5%;">
         <thead>
           <tr style="color:#ff8100;">
             <th>Id</th>
@@ -95,7 +106,7 @@ export default function allUsers() {
           </tr>
         </thead>
         <tbody>
-          <For each={users()?.users}>
+          <For each={list}>
             {(user, i) => (
               <tr
                 onClick={() => moveToDetails(user.id)}
@@ -115,7 +126,7 @@ export default function allUsers() {
           </For>
         </tbody>
       </table>
-      <ul class="pagination">
+      {/* <ul class="pagination">
         <li class="page-item">
           <a
             style="cursor:pointer"
@@ -130,7 +141,7 @@ export default function allUsers() {
             Next
           </a>
         </li>
-      </ul>
+      </ul> */}
     </>
   );
 }
