@@ -121,6 +121,7 @@ const allProducts = () => {
           </div>
         </section>
       </div>
+      <div style={"display:flex; justify-content:center;"}>
       <ul class="pagination">
         <li class="page-item">
           <a
@@ -136,7 +137,7 @@ const allProducts = () => {
             Next
           </a>
         </li>
-      </ul>
+      </ul></div>
     </>
   );
 };

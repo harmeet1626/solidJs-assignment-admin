@@ -7,6 +7,18 @@ import "../dashboard style/css/style.css";
 import "../dashboard style/css/examples.css";
 
 const Home = () => {
+  const getProducts = async () => {
+
+    return (await fetch(`https://dummyjson.com/products`))
+      .json()
+  }
+  const [Total] = createResource(getProducts)
+  const fetchUser = async () => {
+    return await (
+      await fetch(`https://dummyjson.com/users`)
+    ).json()
+  }
+  const [TotalUser] = createResource(fetchUser)
   return (
     <div>
       <br></br>
@@ -213,16 +225,16 @@ const Home = () => {
                 </div>
                 <div class="card-body row text-center">
                   <div class="col">
-                    <div class="fs-5 fw-semibold">89k</div>
+                    <div class="fs-5 fw-semibold">{Total()?.total}</div>
                     <div class="text-uppercase text-medium-emphasis small">
-                      friends
+                      Total Products
                     </div>
                   </div>
                   <div class="vr"></div>
                   <div class="col">
-                    <div class="fs-5 fw-semibold">459</div>
+                    <div class="fs-5 fw-semibold">{TotalUser()?.total}</div>
                     <div class="text-uppercase text-medium-emphasis small">
-                      feeds
+                      Total User
                     </div>
                   </div>
                 </div>
