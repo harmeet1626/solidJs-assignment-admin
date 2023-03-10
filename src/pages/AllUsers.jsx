@@ -66,9 +66,6 @@ export default function allUsers() {
   window.addEventListener('scroll', function () {
     if (isUserAtBottom() && !isAtBottomFlag()) {
       setisAtBottomFlag(true);
-      // User has reached the bottom of the page
-      // Fetch more data
-      console.log('bottom!')
       next();
     }
   });
