@@ -1,35 +1,48 @@
-import { mapArray, createResource, createSignal, createEffect, onMount } from "solid-js";
+import {
+  mapArray,
+  createResource,
+  createSignal,
+  createEffect,
+  onMount,
+} from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createStore, produce } from "solid-js/store";
 import toast from "solid-toast";
+import "../style/loading.css";
 export default function allUsers() {
-  const [isLoading, setisLoading] = createSignal(false)
+  const [isLoading, setisLoading] = createSignal(false);
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = createSignal("");
   const [limit, setlimit] = createSignal(40);
   const [skip, setskip] = createSignal(0);
-  const [list, setlist] = createStore([])
+  const [list, setlist] = createStore([]);
 
   const fetchUser = async (search) => {
-    setisLoading(true)
+    setisLoading(true);
     if (searchInput()) {
       return await (
         await fetch(`https://dummyjson.com/users/search?q=${search}`)
-      ).json().then(res => {
-        setlist([...res.users])
-      })
+      )
+        .json()
+        .then((res) => {
+          setlist([...res.users]);
+        });
     } else {
       return await (
         await fetch(
           `https://dummyjson.com/users?limit=${limit()}&skip=${skip()}`
         )
-      ).json().then(res => {
-        setlist(produce(s => {
-          s.push(...res.users)
-        }))
-        setisLoading(false)
-        setisAtBottomFlag(false)
-      })
+      )
+        .json()
+        .then((res) => {
+          setlist(
+            produce((s) => {
+              s.push(...res.users);
+            })
+          );
+          setisLoading(false);
+          setisAtBottomFlag(false);
+        });
     }
   };
   const [users, { refetch }] = createResource(searchInput, fetchUser);
@@ -49,27 +62,33 @@ export default function allUsers() {
     if (skip() <= 0) {
       toast.error("No more records");
     } else {
-      setskip(skip() - limit())
-      refetch()
+      setskip(skip() - limit());
+      refetch();
     }
   }
   function isUserAtBottom() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+    const scrollPosition =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    const windowHeight =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight ||
+      0;
     const bodyHeight = document.body.offsetHeight || 0;
 
-    return (scrollPosition + windowHeight >= bodyHeight);
+    return scrollPosition + windowHeight >= bodyHeight;
   }
-  const [isAtBottomFlag, setisAtBottomFlag] = createSignal(false)
+  const [isAtBottomFlag, setisAtBottomFlag] = createSignal(false);
 
-
-  window.addEventListener('scroll', function () {
+  window.addEventListener("scroll", function () {
     if (isUserAtBottom() && !isAtBottomFlag()) {
       setisAtBottomFlag(true);
       next();
     }
   });
-
 
   // function test() {
   //   console.log(list)
@@ -93,7 +112,9 @@ export default function allUsers() {
             class="form-control"
             placeholder="search user"
           />
-          <button class="btn btn-primary" onClick={() => navigate('/addUser')}>Add user</button>
+          <button class="btn btn-primary" onClick={() => navigate("/addUser")}>
+            Add user
+          </button>
         </div>
         <br></br>
       </div>
@@ -131,7 +152,7 @@ export default function allUsers() {
             )}
           </For>
         </tbody>
-        {isLoading() == true ? <div>Loading...</div> : null}
+        {isLoading() == true ? <div class="loader"></div> : null}
       </table>
       {/* <ul class="pagination">
         <li class="page-item">
