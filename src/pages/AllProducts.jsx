@@ -127,6 +127,14 @@ const allProducts = () => {
                                     }
                                     scope="col"
                                   >
+                                    Title
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
                                     Brand
                                   </th>
                                   <th
@@ -177,14 +185,7 @@ const allProducts = () => {
                                   >
                                     Stock
                                   </th>
-                                  <th
-                                    style={
-                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
-                                    }
-                                    scope="col"
-                                  >
-                                    Title
-                                  </th>
+                                  
                                 </tr>
                               </thead>
                               <tbody>
@@ -206,6 +207,13 @@ const allProducts = () => {
                                         }
                                       >
                                         {Product.id}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.title}
                                       </td>
                                       <td
                                         style={
@@ -255,13 +263,6 @@ const allProducts = () => {
                                         }
                                       >
                                         {Product.stock}
-                                      </td>
-                                      <td
-                                        style={
-                                          "text-overflow: ellipsis; white-space: nowrap;"
-                                        }
-                                      >
-                                        {Product.title}
                                       </td>
                                     </tr>
                                   )}
