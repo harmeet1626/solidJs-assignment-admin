@@ -60,7 +60,8 @@ export default function allUsers() {
   }
   function previous() {
     if (skip() <= 0) {
-      toast.error("No more records");
+      // toast.error("No more records");
+      return
     } else {
       setskip(skip() - limit());
       refetch();
@@ -103,7 +104,8 @@ export default function allUsers() {
           style=" position: absolute;
           right: 1px;
           margin-top: 1%;
-          margin-bottom: 1%;"
+          margin-bottom: 1%;
+          display:flex;"
         >
           <input
             onInput={(e) => setsearchInput(e.currentTarget.value)}
@@ -112,7 +114,7 @@ export default function allUsers() {
             class="form-control"
             placeholder="search user"
           />
-          <button class="btn btn-primary" onClick={() => navigate("/addUser")}>
+          <button class="btn btn-primary" style={"height: 38px; width: 120px;"} onClick={() => navigate("/addUser")}>
             Add user
           </button>
         </div>

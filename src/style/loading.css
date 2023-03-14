@@ -1,4 +1,10 @@
 .loader {
+  position: absolute;
+  right: 50%;
+  margin-top: 15%;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid blue;

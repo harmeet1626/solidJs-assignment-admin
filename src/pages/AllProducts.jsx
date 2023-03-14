@@ -5,6 +5,8 @@ const allProducts = () => {
   const navigate = useNavigate();
   const [limit, setlimit] = createSignal(8);
   const [skip, setskip] = createSignal(0);
+
+  const [isLoading, setisLoading] = createSignal(false);
   function next() {
     if (skip() >= totalPages()) {
       toast.error("No more records");
@@ -23,12 +25,15 @@ const allProducts = () => {
   }
   const getProducts = async (search) => {
     if (searchInput()) {
+      setisLoading(true);
       return (await fetch(`https://dummyjson.com/products/search?q=${search}`))
         .json()
         .then((res) => {
+          setisLoading(false);
           return res;
         });
     } else {
+      setisLoading(true);
       return (
         await fetch(
           `https://dummyjson.com/products/search?q=${search}&limit=${limit()}&skip=${skip()}`
@@ -36,9 +41,10 @@ const allProducts = () => {
       )
         .json()
         .then((res) => {
+          setisLoading(false);
           return res;
         });
-    }
+      }
   };
   const [searchInput, setsearchInput] = createSignal("");
   const [Products, { mutate, refetch }] = createResource(
@@ -58,8 +64,10 @@ const allProducts = () => {
           class="form-outline"
           style=" position: absolute;
           right: 1px;
-          margin-top: 1%;
-          margin-bottom: 1%;"
+          margin-top: 1%;          
+          margin-bottom: 1%;
+          display:flex"
+          
         >
           <input
             onInput={(e) => setsearchInput(e.currentTarget.value)}
@@ -68,14 +76,15 @@ const allProducts = () => {
             class="form-control"
             placeholder="search product"
           />
-          <button class="btn btn-primary" onClick={() => navigate('/addProduct')}>Add Product</button>
+          <button class="btn btn-primary" style={"height: 38px; width: 155px;"} onClick={() => navigate('/addProduct')}>Add Product</button>
         </div>
         <br></br>
       </div>
+        {isLoading() == true ? <div class="loader"></div> : 
       <div class="text-center container py-1">
         <h2 class="my-2 mt-3 mb-1"></h2>
-        <section class="py-5" style="">
-          <div class="container px-4 px-lg-5 mt-1">
+        <section class="py-5" >
+          <div class="container px-4 px-lg-5 mt-1" >
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
               <For each={Products()?.products}>
                 {(Product, i) => (
@@ -120,7 +129,6 @@ const allProducts = () => {
             </div>
           </div>
         </section>
-      </div>
       <div style={"display:flex; justify-content:center;"}>
       <ul class="pagination">
         <li class="page-item">
@@ -138,6 +146,8 @@ const allProducts = () => {
           </a>
         </li>
       </ul></div>
+      </div>}
+      
     </>
   );
 };
