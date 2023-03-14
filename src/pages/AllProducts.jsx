@@ -185,7 +185,6 @@ const allProducts = () => {
                                   >
                                     Stock
                                   </th>
-                                  
                                 </tr>
                               </thead>
                               <tbody>

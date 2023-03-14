@@ -1,5 +1,5 @@
 import "../style/form.css";
-import '../style/input.css'
+import "../style/input.css";
 import { createResource } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createStore } from "solid-js/store";
@@ -51,7 +51,7 @@ const addUser = () => {
               <b>Firstname</b>
             </label>
             <input
-            class="my-input"
+              class="my-input"
               style={"width:400px; margin-left: 272px;"}
               onInput={(e) =>
                 setuserdetails("firstName", e.currentTarget.value)
@@ -66,7 +66,7 @@ const addUser = () => {
               <b>Lastname</b>
             </label>
             <input
-            class="my-input"
+              class="my-input"
               style={"width:400px; margin-left: 274px;"}
               onInput={(e) => setuserdetails("lastName", e.currentTarget.value)}
               type="text"
@@ -79,7 +79,7 @@ const addUser = () => {
               <b>Age</b>
             </label>
             <input
-            class="my-input"
+              class="my-input"
               style={"width:400px; margin-left: 319px;"}
               onInput={(e) => setuserdetails("age", e.currentTarget.value)}
               type="number"
@@ -92,7 +92,7 @@ const addUser = () => {
               <b>Email</b>
             </label>
             <input
-            class="my-input"
+              class="my-input"
               style={"width:400px; margin-left: 305px;"}
               onInput={(e) => setuserdetails("email", e.currentTarget.value)}
               type="email"

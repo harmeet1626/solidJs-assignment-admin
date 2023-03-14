@@ -45,15 +45,9 @@ export default function navbar() {
           <A class="nav-link collapsed" href="/Allusers">
             <span>All Users</span>
           </A>
-          {/* <A class="nav-link collapsed" href="/addUser">
-            <span>Add User</span>
-          </A> */}
           <A class="nav-link collapsed" href="/allProducts">
             <span>All Products</span>
           </A>
-          {/* <A class="nav-link collapsed" href="/addProduct">
-            <span>Add Products</span>
-          </A> */}
         </li>
         <hr class="sidebar-divider" />
 

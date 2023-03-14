@@ -52,7 +52,6 @@ export default function allUsers() {
   }
   function next() {
     if (skip() >= totalPages()) {
-      // toast.error("No more records");
     } else {
       setskip(skip() + limit());
       refetch();
@@ -60,8 +59,7 @@ export default function allUsers() {
   }
   function previous() {
     if (skip() <= 0) {
-      // toast.error("No more records");
-      return
+      return;
     } else {
       setskip(skip() - limit());
       refetch();
@@ -91,13 +89,8 @@ export default function allUsers() {
     }
   });
 
-  // function test() {
-  //   console.log(list)
-  // }
-
   return (
     <>
-      {/* <button onClick={() => test()}>test</button> */}
       <div class="input-group">
         <div
           class="form-outline"
@@ -114,7 +107,11 @@ export default function allUsers() {
             class="form-control"
             placeholder="search user"
           />
-          <button class="btn btn-primary" style={"height: 38px; width: 120px;"} onClick={() => navigate("/addUser")}>
+          <button
+            class="btn btn-primary"
+            style={"height: 38px; width: 120px;"}
+            onClick={() => navigate("/addUser")}
+          >
             Add user
           </button>
         </div>
@@ -156,22 +153,6 @@ export default function allUsers() {
         </tbody>
         {isLoading() == true ? <div class="loader"></div> : null}
       </table>
-      {/* <ul class="pagination">
-        <li class="page-item">
-          <a
-            style="cursor:pointer"
-            class="page-link"
-            onClick={() => previous()}
-          >
-            Previous
-          </a>
-        </li>
-        <li class="page-item">
-          <a style="cursor:pointer" class="page-link" onClick={() => next()}>
-            Next
-          </a>
-        </li>
-      </ul> */}
     </>
   );
 }
