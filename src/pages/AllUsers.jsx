@@ -52,7 +52,7 @@ export default function allUsers() {
   }
   function next() {
     if (skip() >= totalPages()) {
-      toast.error("No more records");
+      // toast.error("No more records");
     } else {
       setskip(skip() + limit());
       refetch();

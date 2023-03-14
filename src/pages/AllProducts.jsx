@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, A, useLocation } from "@solidjs/router";
 import toast from "solid-toast";
 const allProducts = () => {
   const navigate = useNavigate();
-  const [limit, setlimit] = createSignal(8);
+  const [limit, setlimit] = createSignal(11);
   const [skip, setskip] = createSignal(0);
 
   const [isLoading, setisLoading] = createSignal(false);
@@ -44,7 +44,7 @@ const allProducts = () => {
           setisLoading(false);
           return res;
         });
-      }
+    }
   };
   const [searchInput, setsearchInput] = createSignal("");
   const [Products, { mutate, refetch }] = createResource(
@@ -55,7 +55,6 @@ const allProducts = () => {
   function moveToDetails(id) {
     navigate(`/productDetails/${id}`);
   }
-  
 
   return (
     <>
@@ -67,7 +66,6 @@ const allProducts = () => {
           margin-top: 1%;          
           margin-bottom: 1%;
           display:flex"
-          
         >
           <input
             onInput={(e) => setsearchInput(e.currentTarget.value)}
@@ -76,78 +74,234 @@ const allProducts = () => {
             class="form-control"
             placeholder="search product"
           />
-          <button class="btn btn-primary" style={"height: 38px; width: 155px;"} onClick={() => navigate('/addProduct')}>Add Product</button>
+          <button
+            class="btn btn-primary"
+            style={"height: 38px; width: 155px;"}
+            onClick={() => navigate("/addProduct")}
+          >
+            Add Product
+          </button>
         </div>
         <br></br>
       </div>
-        {isLoading() == true ? <div class="loader"></div> : 
-      <div class="text-center container py-1">
-        <h2 class="my-2 mt-3 mb-1"></h2>
-        <section class="py-5" >
-          <div class="container px-4 px-lg-5 mt-1" >
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-              <For each={Products()?.products}>
-                {(Product, i) => (
-                  <div
-                    class="col mb-5"
-                    onClick={() => moveToDetails(Product.id)}
-                  >
-                    <div
-                      class="card h-100"
-                      style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
-                    >
-                      <div
-                        class="badge bg-danger text-white position-absolute"
-                        style="top: 0.5rem; right: 0.5rem"
-                      >
-                        Sale
-                      </div>
-                      <img
-                        class="card-img-top"
-                        src={Product.thumbnail}
-                        width="96"
-                        height="110"
-                      />
-                      <div class="card-body p-4">
-                        <div class="text-center">
-                          <h2 class="fw-bolder"></h2>
-                          <span class="text-muted text-decoration">
-                            {Product?.title} &nbsp;
-                          </span>
-                          ${Product?.price}
-                        </div>
-                      </div>
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                          <a class="btn btn-outline-dark mt-auto">View</a>
+      {isLoading() == true ? (
+        <div class="loader"></div>
+      ) : (
+        <div class="text-center container py-1">
+          <h2 class="my-2 mt-3 mb-1"></h2>
+          <section class="intro" style={"height: 100%;"}>
+            <div class="bg-image h-100" style="background-color: #f5f7fa;">
+              <div class="mask d-flex align-items-center h-100">
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-12">
+                      <div class="card" style={"border-radius: .5rem;"}>
+                        <div class="card-body p-0">
+                          <div
+                            class="table-responsive table-scroll"
+                            data-mdb-perfect-scrollbar="true"
+                            style="position: relative; height: 700px border-radius: .5rem; font-size: 1.25rem;"
+                          >
+                            <table class="table table-striped mb-0">
+                              <thead style="background-color: #002d72;">
+                                <tr>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Thumbnail
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    id
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Brand
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    category
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Description
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Discount Percentage
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Price
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Rating
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Stock
+                                  </th>
+                                  <th
+                                    style={
+                                      "color: #fff; text-overflow: ellipsis; white-space: nowrap;"
+                                    }
+                                    scope="col"
+                                  >
+                                    Title
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <For each={Products()?.products}>
+                                  {(Product, i) => (
+                                    <tr
+                                      onClick={() => moveToDetails(Product.id)}
+                                      style="cursor: pointer;"
+                                    >
+                                      <td>
+                                        <img
+                                          style={"height:40px; width:40px"}
+                                          src={Product.thumbnail}
+                                        />
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.id}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.brand}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.category}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.description}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.discountPercentage}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.price}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.rating}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.stock}
+                                      </td>
+                                      <td
+                                        style={
+                                          "text-overflow: ellipsis; white-space: nowrap;"
+                                        }
+                                      >
+                                        {Product.title}
+                                      </td>
+                                    </tr>
+                                  )}
+                                </For>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                )}
-              </For>
+                </div>
+              </div>
             </div>
+          </section>
+
+          <div style={"display:flex; justify-content:center;"}>
+            <ul class="pagination">
+              <li class="page-item">
+                <a
+                  style="cursor:pointer"
+                  class="page-link"
+                  onClick={() => previous()}
+                >
+                  Previous
+                </a>
+              </li>
+              <li class="page-item">
+                <a
+                  style="cursor:pointer"
+                  class="page-link"
+                  onClick={() => next()}
+                >
+                  Next
+                </a>
+              </li>
+            </ul>
           </div>
-        </section>
-      <div style={"display:flex; justify-content:center;"}>
-      <ul class="pagination">
-        <li class="page-item">
-          <a
-            style="cursor:pointer"
-            class="page-link"
-            onClick={() => previous()}
-          >
-            Previous
-          </a>
-        </li>
-        <li class="page-item">
-          <a style="cursor:pointer" class="page-link" onClick={() => next()}>
-            Next
-          </a>
-        </li>
-      </ul></div>
-      </div>}
-      
+        </div>
+      )}
     </>
   );
 };
