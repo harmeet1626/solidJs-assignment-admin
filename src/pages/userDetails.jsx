@@ -39,6 +39,19 @@ const userDetails = () => {
     lastName: users()?.lastName,
     age: users()?.age,
     email: users()?.email,
+    birthDate: users()?.birthDate,
+    bloodGroup: users()?.bloodGroup,
+    domain: users()?.domain,
+    eyeColor: users()?.eyeColor,
+    height: users()?.height,
+    ip: users()?.ip,
+    macAddress: users()?.macAddress,
+    password: users()?.password,
+    phone: users()?.phone,
+    university: users()?.university,
+    username: users()?.username,
+    weight: users()?.weight,
+    gender: users()?.gender,
   });
   function edit() {
     event.preventDefault();
@@ -51,6 +64,19 @@ const userDetails = () => {
           lastName: userDetails.lastName,
           age: userDetails.age,
           email: userDetails.email,
+          birthDate: userDetails.birthDate,
+          bloodGroup: userDetails.bloodGroup,
+          domain: userDetails.domain,
+          eyeColor: userDetails.eyeColor,
+          height: userDetails.height,
+          ip: userDetails.ip,
+          macAddress: userDetails.macAddress,
+          password: userDetails.password,
+          phone: userDetails.phone,
+          university: userDetails.university,
+          username: userDetails.username,
+          weight: userDetails.weight,
+          gender: userDetails.gender,
         }),
       })
         .then((res) => res.json())
@@ -83,7 +109,7 @@ const userDetails = () => {
               </div>
               <hr></hr>
 
-              <label for="text">
+              <label>
                 <b>Firstname</b>
               </label>
               <input
@@ -99,7 +125,7 @@ const userDetails = () => {
               />
               <br></br>
 
-              <label for="text">
+              <label>
                 <b>Lastname</b>
               </label>
               <input
@@ -115,7 +141,7 @@ const userDetails = () => {
               />
               <br></br>
 
-              <label for="email">
+              <label>
                 <b>Age</b>
               </label>
               <input
@@ -128,19 +154,187 @@ const userDetails = () => {
                 required
               />
               <br></br>
-
               <label for="email">
                 <b>Email</b>
               </label>
               <input
                 class="my-input"
-                style={"width:400px; margin-left: 305px;"}
+                style={"width:400px; margin-left: 309px;"}
                 value={users()?.email}
                 onInput={(e) => setuserdetails("email", e.currentTarget.value)}
-                type="email"
-                placeholder="Enter Email"
-                name="email"
-                id="email"
+                required
+              />
+              <br></br>
+
+              {/* new rows starts from here */}
+              <label>
+                <b>birthDate</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 278px;"}
+                value={users()?.birthDate}
+                onInput={(e) =>
+                  setuserdetails("birthDate", e.currentTarget.value)
+                }
+                placeholder="yyyy-mm-dd"
+                required
+              />
+              <br></br>
+              <label>
+                <b>bloodGroup</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 263px;"}
+                value={users()?.bloodGroup}
+                onInput={(e) =>
+                  setuserdetails("bloodGroup", e.currentTarget.value)
+                }
+                required
+              />
+              <br></br>
+              <label>
+                <b>domain</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 299px;"}
+                value={users()?.domain}
+                onInput={(e) => setuserdetails("domain", e.currentTarget.value)}
+                required
+              />
+              <br></br>
+              <label>
+                <b>eyeColor</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 287px;"}
+                value={users()?.eyeColor}
+                onInput={(e) =>
+                  setuserdetails("eyeColor", e.currentTarget.value)
+                }
+                type="text"
+                required
+              />
+              <br></br>
+              <label>
+                <b>height</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 305px;"}
+                value={users()?.height}
+                onInput={(e) => setuserdetails("height", e.currentTarget.value)}
+                type="number"
+                required
+              />
+              <br></br>
+              {/* <label >
+                <b>image</b>
+              </label>
+              <img style={"width:400px; margin-left: 305px;"} src={users()?.image}/>
+              <br></br> */}
+              <label>
+                <b>ip</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 339px;"}
+                value={users()?.ip}
+                onInput={(e) => setuserdetails("ip", e.currentTarget.value)}
+                required
+              />
+              <br></br>
+              <label>
+                <b>macAddress</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 262px;"}
+                value={users()?.macAddress}
+                onInput={(e) =>
+                  setuserdetails("macAddress", e.currentTarget.value)
+                }
+                required
+              />
+              <br></br>
+              <label>
+                <b>password</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 285px;"}
+                value={users()?.password}
+                onInput={(e) =>
+                  setuserdetails("password", e.currentTarget.value)
+                }
+                type="password"
+                required
+              />
+              <br></br>
+              <label>
+                <b>phone</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 308px;"}
+                value={users()?.phone}
+                onInput={(e) => setuserdetails("phone", e.currentTarget.value)}
+                type="text"
+                required
+              />
+              <br></br>
+              <label>
+                <b>university</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 282px;"}
+                value={users()?.university}
+                onInput={(e) =>
+                  setuserdetails("university", e.currentTarget.value)
+                }
+                type="text"
+                required
+              />
+              <br></br>
+              <label>
+                <b>username</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 284px;"}
+                value={users()?.username}
+                onInput={(e) =>
+                  setuserdetails("username", e.currentTarget.value)
+                }
+                type="text"
+                required
+              />
+              <br></br>
+              <label>
+                <b>weight</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 308px;"}
+                value={users()?.weight}
+                onInput={(e) => setuserdetails("weight", e.currentTarget.value)}
+                type="number"
+                required
+              />
+              <br></br>
+              <label>
+                <b>gender</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 305px;"}
+                value={users()?.gender}
+                onInput={(e) => setuserdetails("gender", e.currentTarget.value)}
+                type="text"
                 required
               />
               <br></br>
