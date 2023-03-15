@@ -3,6 +3,7 @@ import {
   createResource,
   createSignal,
   createEffect,
+  createMemo,
   onMount,
 } from "solid-js";
 import { useNavigate } from "@solidjs/router";
@@ -17,35 +18,30 @@ export default function allUsers() {
   const [skip, setskip] = createSignal(0);
   const [list, setlist] = createStore([]);
 
-  const fetchUser = async (search) => {
+  const fetchUser = async () => {
     setisLoading(true);
-    if (searchInput()) {
-      return await (
-        await fetch(`https://dummyjson.com/users/search?q=${search}`)
-      )
-        .json()
-        .then((res) => {
-          setlist([...res.users]);
-        });
-    } else {
-      return await (
-        await fetch(
-          `https://dummyjson.com/users?limit=${limit()}&skip=${skip()}`
-        )
-      )
-        .json()
-        .then((res) => {
-          setlist(
-            produce((s) => {
-              s.push(...res.users);
-            })
-          );
-          setisLoading(false);
-          setisAtBottomFlag(false);
-        });
-    }
+    return await (
+      await fetch(`https://dummyjson.com/users?limit=${limit()}&skip=${skip()}`)
+    )
+      .json()
+      .then((res) => {
+        setlist(
+          produce((s) => {
+            s.push(...res.users);
+          })
+        );
+        setisLoading(false);
+        setisAtBottomFlag(false);
+      });
   };
-  const [users, { refetch }] = createResource(searchInput, fetchUser);
+  const filteredData = createMemo(() => {
+    if (searchInput()) {
+      return list.filter((item) => item.username.includes(searchInput()));
+    } else {
+      return list;
+    }
+  });
+  const [users, { refetch }] = createResource(fetchUser);
   const totalPages = () => 100 - limit();
   function moveToDetails(id) {
     navigate(`/userDetails/${id}`);
@@ -81,9 +77,10 @@ export default function allUsers() {
     return scrollPosition + windowHeight >= bodyHeight;
   }
   const [isAtBottomFlag, setisAtBottomFlag] = createSignal(false);
-
+  // createEffect(()=>{
   window.addEventListener("scroll", function () {
     if (isUserAtBottom() && !isAtBottomFlag()) {
+      console.log("hit");
       setisAtBottomFlag(true);
       next();
     }
@@ -132,7 +129,7 @@ export default function allUsers() {
           </tr>
         </thead>
         <tbody>
-          <For each={list}>
+          <For each={filteredData()}>
             {(user, i) => (
               <tr
                 onClick={() => moveToDetails(user.id)}
