@@ -15,7 +15,6 @@ const products = () => {
   });
   function submit() {
     event.preventDefault();
-    console.log(typeof productDetails.title);
 
     try {
       fetch("https://dummyjson.com/products/add", {
