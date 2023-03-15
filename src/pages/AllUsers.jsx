@@ -117,7 +117,7 @@ export default function allUsers() {
         </div>
         <br></br>
       </div>
-      <table class="table" id="table" style="margin-top:5%;">
+      <table class="table" id="table" style="margin-top:5%; margin-left:1%;">
         <thead>
           <tr style="color:#ff8100;">
             <th>Id</th>

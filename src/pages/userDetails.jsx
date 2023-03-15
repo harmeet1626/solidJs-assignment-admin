@@ -166,23 +166,8 @@ const userDetails = () => {
               />
               <br></br>
 
-              {/* new rows starts from here */}
               <label>
-                <b>birthDate</b>
-              </label>
-              <input
-                class="my-input"
-                style={"width:400px; margin-left: 278px;"}
-                value={users()?.birthDate}
-                onInput={(e) =>
-                  setuserdetails("birthDate", e.currentTarget.value)
-                }
-                placeholder="yyyy-mm-dd"
-                required
-              />
-              <br></br>
-              <label>
-                <b>bloodGroup</b>
+                <b>BloodGroup</b>
               </label>
               <input
                 class="my-input"
@@ -195,7 +180,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>domain</b>
+                <b>Domain</b>
               </label>
               <input
                 class="my-input"
@@ -206,7 +191,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>eyeColor</b>
+                <b>EyeColor</b>
               </label>
               <input
                 class="my-input"
@@ -220,7 +205,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>height</b>
+                <b>Height</b>
               </label>
               <input
                 class="my-input"
@@ -231,11 +216,6 @@ const userDetails = () => {
                 required
               />
               <br></br>
-              {/* <label >
-                <b>image</b>
-              </label>
-              <img style={"width:400px; margin-left: 305px;"} src={users()?.image}/>
-              <br></br> */}
               <label>
                 <b>ip</b>
               </label>
@@ -248,7 +228,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>macAddress</b>
+                <b>MacAddress</b>
               </label>
               <input
                 class="my-input"
@@ -261,7 +241,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>password</b>
+                <b>Password</b>
               </label>
               <input
                 class="my-input"
@@ -275,7 +255,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>phone</b>
+                <b>Phone</b>
               </label>
               <input
                 class="my-input"
@@ -287,7 +267,21 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>university</b>
+                <b>BirthDate</b>
+              </label>
+              <input
+                class="my-input"
+                style={"width:400px; margin-left: 278px;"}
+                value={users()?.birthDate}
+                onInput={(e) =>
+                  setuserdetails("birthDate", e.currentTarget.value)
+                }
+                placeholder="yyyy-mm-dd"
+                required
+              />
+              <br></br>
+              <label>
+                <b>University</b>
               </label>
               <input
                 class="my-input"
@@ -301,7 +295,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>username</b>
+                <b>Username</b>
               </label>
               <input
                 class="my-input"
@@ -315,7 +309,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>weight</b>
+                <b>Weight</b>
               </label>
               <input
                 class="my-input"
@@ -327,7 +321,7 @@ const userDetails = () => {
               />
               <br></br>
               <label>
-                <b>gender</b>
+                <b>Gender</b>
               </label>
               <input
                 class="my-input"
