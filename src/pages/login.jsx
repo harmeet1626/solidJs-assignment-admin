@@ -37,7 +37,7 @@ const login = () => {
             toast.error("Check the creadentials");
           } else {
             setisLogin(true);
-            localStorage.setItem("isLogin", JSON.stringify(true));
+            localStorage.setItem("isLogin", 'true');
             toast.success("Welcome!");
             navigate("/");
             setuserDetails(
