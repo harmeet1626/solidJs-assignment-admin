@@ -3,7 +3,16 @@ import { createSignal, For, createResource } from "solid-js";
 import { createStore, produce } from "solid-js/store";
 import toast, { Toaster } from "solid-toast";
 import "../style/input.css";
+import { Box, Button, Modal, Typography } from "@suid/material";
+import useTheme from "@suid/material/styles/useTheme";
+import "../style/input.css";
+
 const productDetails = () => {
+  const [open, setOpen] = createSignal(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const theme = useTheme();
+
   const [isLoading, setisLoading] = createSignal(false);
   const Params = useParams();
   function getId() {
@@ -90,13 +99,43 @@ const productDetails = () => {
         <div class="loader"></div>
       ) : (
         <div style={"padding-left:40px; padding-top:30px"}>
+          <Modal
+            open={open()}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: 400,
+                bgcolor: theme.palette.background.paper,
+                border: "2px solid #000",
+                boxShadow: "24px",
+                p: 4,
+              }}
+            >
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Are you sure you want to delete user ? <br></br>
+                <button class="btn btn-success" onClick={() => DeleteProduct()}>
+                  Yes
+                </button>{" "}
+                <button class="btn btn-danger" onclick={() => handleClose()}>
+                  No
+                </button>
+              </Typography>
+            </Box>
+          </Modal>
           <form onsubmit={submit}>
             <div class="container">
               <br></br>
               <h1>Update Product</h1>
               <div align="right">
                 <button
-                  onClick={() => DeleteProduct()}
+                  onClick={() => handleOpen()}
                   type="button"
                   class="btn btn-danger"
                 >
@@ -218,11 +257,11 @@ const productDetails = () => {
               </textarea>
               <br></br>
               <hr />
-              <p>
-                By creating an account you agree to our <a>Terms & Privacy</a>.
-              </p>
-
-              <button style={"width: 725px;"} type="submit" class="registerbtn">
+              <button
+                type="submit"
+                style={"width: 100px;"}
+                class="btn btn-primary"
+              >
                 Update
               </button>
             </div>

@@ -2,9 +2,16 @@ import { createResource, createSignal } from "solid-js";
 import { useParams, useNavigate } from "@solidjs/router";
 import { createStore } from "solid-js/store";
 import toast from "solid-toast";
+import { Box, Button, Modal, Typography } from "@suid/material";
+import useTheme from "@suid/material/styles/useTheme";
 import "../style/input.css";
 
 const userDetails = () => {
+  const [open, setOpen] = createSignal(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const theme = useTheme();
+
   const [isLoading, setisLoading] = createSignal(false);
   const navigate = useNavigate();
   const Params = useParams();
@@ -92,6 +99,36 @@ const userDetails = () => {
         <div class="loader"></div>
       ) : (
         <div style={"padding-left:40px; padding-top:30px"}>
+          <Modal
+            open={open()}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: 400,
+                bgcolor: theme.palette.background.paper,
+                border: "2px solid #000",
+                boxShadow: "24px",
+                p: 4,
+              }}
+            >
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Are you sure you want to delete user ? <br></br>
+                <button class="btn btn-success" onClick={() => deleteUser()}>
+                  Yes
+                </button>{" "}
+                <button class="btn btn-danger" onclick={() => handleClose()}>
+                  No
+                </button>
+              </Typography>
+            </Box>
+          </Modal>
           <form onSubmit={edit}>
             <div class="container">
               <h1>Update user</h1>
@@ -99,7 +136,7 @@ const userDetails = () => {
                 <p>Please fill in this form to create an account.</p>
                 <div align="right">
                   <button
-                    onClick={() => deleteUser()}
+                    onClick={() => handleOpen()}
                     type="button"
                     class="btn btn-danger"
                   >
@@ -347,11 +384,11 @@ const userDetails = () => {
               <br></br>
 
               <hr />
-              <p>
-                By creating an account you agree to our <a>Terms & Privacy</a>.
-              </p>
-
-              <button style={"width: 530px;"} type="submit" class="registerbtn">
+              <button
+                type="submit"
+                style={"width: 100px;"}
+                class="btn btn-primary"
+              >
                 Update
               </button>
             </div>

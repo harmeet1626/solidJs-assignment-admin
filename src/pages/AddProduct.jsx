@@ -149,11 +149,7 @@ const products = () => {
           </div>
 
           <hr />
-          <p>
-            By creating an account you agree to our <a>Terms & Privacy</a>.
-          </p>
-
-          <button style={"width: 820px;"} type="submit" class="registerbtn">
+          <button style={"width: 100px;"} class="btn btn-primary" type="submit" >
             Add
           </button>
         </div>
