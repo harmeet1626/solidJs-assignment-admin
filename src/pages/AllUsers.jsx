@@ -80,7 +80,6 @@ export default function allUsers() {
   // createEffect(()=>{
   window.addEventListener("scroll", function () {
     if (isUserAtBottom() && !isAtBottomFlag()) {
-      console.log("hit");
       setisAtBottomFlag(true);
       next();
     }
