@@ -162,6 +162,7 @@ const userDetails = () => {
                 style={"width:400px; margin-left: 309px;"}
                 value={users()?.email}
                 onInput={(e) => setuserdetails("email", e.currentTarget.value)}
+                placeholder="email"
                 required
               />
               <br></br>
@@ -176,6 +177,7 @@ const userDetails = () => {
                 onInput={(e) =>
                   setuserdetails("bloodGroup", e.currentTarget.value)
                 }
+                placeholder="bloodgroup"
                 required
               />
               <br></br>
@@ -187,6 +189,7 @@ const userDetails = () => {
                 style={"width:400px; margin-left: 299px;"}
                 value={users()?.domain}
                 onInput={(e) => setuserdetails("domain", e.currentTarget.value)}
+                placeholder="domain"
                 required
               />
               <br></br>
@@ -201,6 +204,7 @@ const userDetails = () => {
                   setuserdetails("eyeColor", e.currentTarget.value)
                 }
                 type="text"
+                placeholder="eyecolor"
                 required
               />
               <br></br>
@@ -213,6 +217,7 @@ const userDetails = () => {
                 value={users()?.height}
                 onInput={(e) => setuserdetails("height", e.currentTarget.value)}
                 type="number"
+                placeholder="height"
                 required
               />
               <br></br>
@@ -224,6 +229,7 @@ const userDetails = () => {
                 style={"width:400px; margin-left: 339px;"}
                 value={users()?.ip}
                 onInput={(e) => setuserdetails("ip", e.currentTarget.value)}
+                placeholder="ip"
                 required
               />
               <br></br>
@@ -237,6 +243,7 @@ const userDetails = () => {
                 onInput={(e) =>
                   setuserdetails("macAddress", e.currentTarget.value)
                 }
+                placeholder="macaddress"
                 required
               />
               <br></br>
@@ -251,6 +258,7 @@ const userDetails = () => {
                   setuserdetails("password", e.currentTarget.value)
                 }
                 type="password"
+                placeholder="password"
                 required
               />
               <br></br>
@@ -263,6 +271,7 @@ const userDetails = () => {
                 value={users()?.phone}
                 onInput={(e) => setuserdetails("phone", e.currentTarget.value)}
                 type="text"
+                placeholder="phone"
                 required
               />
               <br></br>
@@ -291,6 +300,7 @@ const userDetails = () => {
                   setuserdetails("university", e.currentTarget.value)
                 }
                 type="text"
+                placeholder="university"
                 required
               />
               <br></br>
@@ -305,6 +315,7 @@ const userDetails = () => {
                   setuserdetails("username", e.currentTarget.value)
                 }
                 type="text"
+                placeholder="username"
                 required
               />
               <br></br>
@@ -317,6 +328,7 @@ const userDetails = () => {
                 value={users()?.weight}
                 onInput={(e) => setuserdetails("weight", e.currentTarget.value)}
                 type="number"
+                placeholder="weight"
                 required
               />
               <br></br>
@@ -329,6 +341,7 @@ const userDetails = () => {
                 value={users()?.gender}
                 onInput={(e) => setuserdetails("gender", e.currentTarget.value)}
                 type="text"
+                placeholder="gender"
                 required
               />
               <br></br>
