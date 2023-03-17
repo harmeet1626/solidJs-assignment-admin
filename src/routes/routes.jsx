@@ -1,5 +1,4 @@
 import { Routes, Route, useNavigate, useLocation } from "@solidjs/router";
-import { createSignal, createEffect } from "solid-js";
 import Login from "../pages/login";
 import { isLogin } from "../pages/login";
 import Home from "../pages/Home";

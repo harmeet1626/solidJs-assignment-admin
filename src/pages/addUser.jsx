@@ -1,9 +1,8 @@
 import "../style/form.css";
 import "../style/input.css";
-import { createResource } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createStore } from "solid-js/store";
-import toast, { Toaster } from "solid-toast";
+import toast from "solid-toast";
 
 const addUser = () => {
   const navigate = useNavigate();

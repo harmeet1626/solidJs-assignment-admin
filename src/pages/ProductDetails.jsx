@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "@solidjs/router";
 import { createSignal, For, createResource } from "solid-js";
 import { createStore, produce } from "solid-js/store";
-import toast, { Toaster } from "solid-toast";
+import toast from "solid-toast";
 import "../style/input.css";
 import { Box, Button, Modal, Typography } from "@suid/material";
 import useTheme from "@suid/material/styles/useTheme";

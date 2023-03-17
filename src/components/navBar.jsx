@@ -2,7 +2,7 @@ import { isLogin, setisLogin } from "../pages/login";
 import "../css/bootstrap.min.css";
 import "../css/style.css";
 import "../css/sb-admin-2.min.css";
-import { Routes, Route, useNavigate, A, useLocation } from "@solidjs/router";
+import { useNavigate, A } from "@solidjs/router";
 
 export default function navbar() {
   const navigate = useNavigate();

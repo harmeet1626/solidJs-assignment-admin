@@ -1,5 +1,4 @@
-import { createSignal, onMount, createResource } from "solid-js";
-import { Routes, Route, useNavigate, A, useLocation } from "@solidjs/router";
+import { createResource } from "solid-js";
 import "../dashboard style/vendors/@coreui/chartjs/css/coreui-chartjs.css";
 import "../dashboard style/vendors/simplebar/css/simplebar.css";
 import "../dashboard style/css/vendors/simplebar.css";

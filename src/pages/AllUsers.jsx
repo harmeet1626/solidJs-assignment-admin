@@ -1,11 +1,4 @@
-import {
-  mapArray,
-  createResource,
-  createSignal,
-  createEffect,
-  createMemo,
-  onMount,
-} from "solid-js";
+import { createResource, createSignal, createMemo } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createStore, produce } from "solid-js/store";
 import toast from "solid-toast";
@@ -77,7 +70,6 @@ export default function allUsers() {
     return scrollPosition + windowHeight >= bodyHeight;
   }
   const [isAtBottomFlag, setisAtBottomFlag] = createSignal(false);
-  // createEffect(()=>{
   window.addEventListener("scroll", function () {
     if (isUserAtBottom() && !isAtBottomFlag()) {
       setisAtBottomFlag(true);
