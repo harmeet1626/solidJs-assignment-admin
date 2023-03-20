@@ -13,7 +13,7 @@ const header = () => {
 
         <a class="navbar-brand">
           <img
-            src="https://image.shutterstock.com/image-vector/male-manager-icon-vector-style-260nw-461340628.jpg"
+            src={userDetails.image? userDetails?.image : 'https://image.shutterstock.com/image-vector/male-manager-icon-vector-style-260nw-461340628.jpg'}
             width="30"
             height="30"
             alt=""
