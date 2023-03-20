@@ -1,16 +1,16 @@
-import { isLogin, setisLogin } from "../pages/login";
 import "../css/bootstrap.min.css";
 import "../css/style.css";
 import "../css/sb-admin-2.min.css";
 import { useNavigate, A } from "@solidjs/router";
+import { setisLogin, getUserDetails } from "../pages/login";
 
 export default function navbar() {
   const navigate = useNavigate();
   function logout() {
-    setisLogin(false);
-    localStorage.removeItem("isLogin");
-    isLogin();
+    localStorage.removeItem("token");
     navigate("/login");
+    getUserDetails();
+    setisLogin(false);
   }
   return (
     <>

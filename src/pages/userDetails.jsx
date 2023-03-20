@@ -11,7 +11,6 @@ const userDetails = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const theme = useTheme();
-
   const [isLoading, setisLoading] = createSignal(false);
   const navigate = useNavigate();
   const Params = useParams();

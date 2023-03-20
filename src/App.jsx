@@ -1,29 +1,25 @@
 import Navbar from "./components/navBar";
 import Routes from "./routes/routes";
-import { createSignal, createEffect, onCleanup } from "solid-js";
-import { isLogin } from "./pages/login";
-import{ Toaster } from "solid-toast";
+import { onMount } from "solid-js";
+import { getUserDetails, isLogin, userDetails } from "./pages/login";
+import { Toaster } from "solid-toast";
 import Header from "./components/Header";
 import "./style/sideNav.css";
 function App() {
-  const [state, setstate] = createSignal();
-  createEffect(() => {
-    setstate(isLogin());
-  });
-  onCleanup(() => {
-    localStorage.removeItem("isLogin");
+  onMount(() => {
+    getUserDetails();
   });
 
   return (
     <div>
       <Toaster />
-      <Show when={state()}>
+      <Show when={isLogin()}>
         <div class="sidenav">
           <Navbar />
         </div>
       </Show>
-      <div class={isLogin() ? "main" : "no class"}>
-        <Show when={state()}>
+      <div class={isLogin() == true ? "main" : "no class"}>
+        <Show when={isLogin()}>
           <Header />
         </Show>
         <Routes />
