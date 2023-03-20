@@ -1,6 +1,6 @@
-import { createEffect, createSignal, onMount } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 import toast from "solid-toast";
-import { createStore, produce } from "solid-js/store";
+import { createStore } from "solid-js/store";
 import { useNavigate } from "@solidjs/router";
 export const [userDetails, setuserDetails] = createStore({});
 export const [isLogin, setisLogin] = createSignal(false);

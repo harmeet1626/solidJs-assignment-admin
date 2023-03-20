@@ -1,7 +1,6 @@
 import { createResource, createSignal, createMemo } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createStore, produce } from "solid-js/store";
-import toast from "solid-toast";
 import "../style/loading.css";
 export default function allUsers() {
   const [isLoading, setisLoading] = createSignal(false);

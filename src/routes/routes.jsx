@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate, useLocation } from "@solidjs/router";
 import Login from "../pages/login";
-import { userDetails, getUserDetails, isLogin } from "../pages/login";
+import { isLogin } from "../pages/login";
 import Home from "../pages/Home";
 import Allusers from "../pages/AllUsers";
 import addUser from "../pages/addUser";
@@ -15,7 +15,7 @@ const routes = () => {
       navigate("/login");
       return null;
     }
-    if (isLogin() && useLocation().pathname== "/login") {
+    if (isLogin() && useLocation().pathname == "/login") {
       navigate("/");
     }
     return component;

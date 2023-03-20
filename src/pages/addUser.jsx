@@ -274,7 +274,11 @@ const addUser = () => {
             <br></br>
 
             <hr />
-            <button style={"width: 100px;"} class="btn btn-primary" type="submit" >
+            <button
+              style={"width: 100px;"}
+              class="btn btn-primary"
+              type="submit"
+            >
               Add
             </button>
           </div>
