@@ -8,7 +8,6 @@ import userDetail from "../pages/userDetails";
 import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
 import AddProduct from "../pages/AddProduct";
-import { onMount } from "solid-js";
 const routes = () => {
   const navigate = useNavigate();
   function requireAuth(component) {
@@ -16,7 +15,7 @@ const routes = () => {
       navigate("/login");
       return null;
     }
-    if (isLogin()) {
+    if (isLogin() && useLocation().pathname== "/login") {
       navigate("/");
     }
     return component;
