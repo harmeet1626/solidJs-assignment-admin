@@ -58,10 +58,10 @@ const login = () => {
         .then((res) => res.json())
         .then((res) => {
           if (res.token) {
-            toast.success("Welcome!");
             const token = res.token;
             localStorage.setItem("token", JSON.stringify(token));
             getUserDetails();
+            toast.success(`Welcome ${userDetails?.firstName}!`);
             navigate("/");
           } else {
             toast.error("Check the creadentials");
