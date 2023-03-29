@@ -1,6 +1,5 @@
-import { Routes, Route, useNavigate, useLocation } from "@solidjs/router";
+import { Routes, Route } from "@solidjs/router";
 import Login from "../pages/login";
-import { isLogin } from "../pages/login";
 import Home from "../pages/Home";
 import Allusers from "../pages/AllUsers";
 import addUser from "../pages/addUser";
@@ -9,31 +8,17 @@ import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
 import AddProduct from "../pages/AddProduct";
 const routes = () => {
-  const navigate = useNavigate();
-  function requireAuth(component) {
-    if (!isLogin()) {
-      navigate("/login");
-      return null;
-    }
-    if (isLogin() && useLocation().pathname == "/login") {
-      navigate("/");
-    }
-    return component;
-  }
   return (
     <>
       <Routes>
         <Route path="/login" component={Login} />
-        <Route path="/" component={requireAuth(Home)} />
-        <Route path="/Allusers" component={requireAuth(Allusers)} />
-        <Route path="/addUser" component={requireAuth(addUser)} />
-        <Route path="/userDetails/:id" component={requireAuth(userDetail)} />
-        <Route path="/allProducts" component={requireAuth(AllProducts)} />
-        <Route
-          path="/productDetails/:id"
-          component={requireAuth(ProductDetails)}
-        />
-        <Route path="/addProduct" component={requireAuth(AddProduct)} />
+        <Route path="/" component={Home} />
+        <Route path="/Allusers" component={Allusers} />
+        <Route path="/addUser" component={addUser} />
+        <Route path="/userDetails/:id" component={userDetail} />
+        <Route path="/allProducts" component={AllProducts} />
+        <Route path="/productDetails/:id" component={ProductDetails} />
+        <Route path="/addProduct" component={AddProduct} />
       </Routes>
     </>
   );

@@ -45,9 +45,9 @@ const login = () => {
   const [username, setusername] = createSignal("");
   const [password, setpassword] = createSignal("");
   const navigate = useNavigate();
-  function login() {
+  async function login() {
     try {
-      fetch("https://dummyjson.com/auth/login", {
+      await fetch("https://dummyjson.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
