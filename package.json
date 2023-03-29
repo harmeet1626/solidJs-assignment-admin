@@ -17,6 +17,7 @@
     "@solidjs/router": "^0.7.0",
     "@suid/icons-material": "^0.5.9",
     "@suid/material": "^0.10.2",
+    "jwt-decode": "^3.1.2",
     "solid-bootstrap": "^1.0.13",
     "solid-js": "^1.6.10",
     "solid-toast": "^0.4.0"

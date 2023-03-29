@@ -2,6 +2,7 @@ import { createEffect, createSignal } from "solid-js";
 import toast from "solid-toast";
 import { createStore } from "solid-js/store";
 import { useNavigate } from "@solidjs/router";
+import jwt_decode from "jwt-decode";
 export const [userDetails, setuserDetails] = createStore({});
 export const [isLogin, setisLogin] = createSignal(false);
 export function getUserDetails() {
@@ -17,23 +18,12 @@ export function getUserDetails() {
 }
 function parseJwt(token) {
   if (token !== null) {
-    var base64Url = token.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(
-      window
-        .atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
-    return JSON.parse(jsonPayload);
+    var decoded = jwt_decode(localStorage.getItem("token"));
+    return decoded;
   } else {
     return null;
   }
 }
-
 const login = () => {
   createEffect(() => {
     userDetails;
