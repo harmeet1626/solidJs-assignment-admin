@@ -1,4 +1,4 @@
-import { Routes, Route } from "@solidjs/router";
+import { Routes, Route, useRoutes } from "@solidjs/router";
 import Login from "../pages/login";
 import Home from "../pages/Home";
 import Allusers from "../pages/AllUsers";
@@ -8,17 +8,45 @@ import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
 import AddProduct from "../pages/AddProduct";
 const routes = () => {
+  const routes = [
+    {
+      path: "/",
+      component: Home,
+    },
+    {
+      path: "/login",
+      component: Login,
+    },
+    {
+      path: "/Allusers",
+      component: Allusers,
+    },
+    {
+      path: "/addUser",
+      component: addUser,
+    },
+    {
+      path: "/userDetails/:id",
+      component: userDetail,
+    },
+    {
+      path: "/allProducts",
+      component: AllProducts,
+    },
+    {
+      path: "/productDetails/:id",
+      component: ProductDetails,
+    },
+    {
+      path: "/addProduct",
+      component: AddProduct,
+    },
+  ];
+  const Routes = useRoutes(routes);
   return (
     <>
       <Routes>
-        <Route path="/login" component={Login} />
-        <Route path="/" component={Home} />
-        <Route path="/Allusers" component={Allusers} />
-        <Route path="/addUser" component={addUser} />
-        <Route path="/userDetails/:id" component={userDetail} />
-        <Route path="/allProducts" component={AllProducts} />
-        <Route path="/productDetails/:id" component={ProductDetails} />
-        <Route path="/addProduct" component={AddProduct} />
+        <Routes />
       </Routes>
     </>
   );
